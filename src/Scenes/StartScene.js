@@ -2,19 +2,18 @@ import 'phaser';
 
 export default class StartScene extends Phaser.Scene {
 
-  initialize:
-
-  preload: function ()
-  {
-
-  },
-
-  create: function ()
+  preload()
   {
 
   }
 
-  update: function ()
+  create ()
+  {
+    this.add.text(400,250, 'Hello World!');
+    
+  }
+
+  update()
   {
 
   }
