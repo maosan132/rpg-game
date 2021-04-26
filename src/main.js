@@ -1,17 +1,12 @@
-import phaser from 'phaser';
 import config from './Config/config';
 import StartScene from './Scenes/StartScene';
-import MapScene from './Scenes/MapScene';
-
-//import TitleScreen from './scenes/TitleScreen';
-//import Game from './scenes/Game';
+// import MapScene from './Scenes/MapScene'
+// import TitleScreen from './scenes/TitleScreen';
+// import Game from './scenes/Game';
 
 const game = new Phaser.Game(config);
 
 game.scene.add('StartScene', StartScene);
-// game.scene.add('game', Game);
+//game.scene.add('game', MapScene);
 
-// game.scene.start('titlescreen');
 game.scene.start('StartScene');
-
-

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/maosan132/rpg-game#readme",
   "dependencies": {
+    "assets": "^3.0.1",
     "parcel-bundler": "^1.12.5",
     "phaser": "^3.54.0"
   },

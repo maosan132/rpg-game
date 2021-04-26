@@ -13,7 +13,7 @@ const config = {
     },
   },
   defaultImage: './assets/microverse_purple.png',
-  disableContextMenu: true,
+  //disableContextMenu: true,
   gameTitle: 'SantosGame',
   hidePhaser : true,
   scaleMode: 2,
