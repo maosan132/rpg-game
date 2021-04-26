@@ -1,4 +1,6 @@
 import phaser from 'phaser';
+import StartScene from './Scenes/StartScene';
+import MapScene from './Scenes/MapScene';
 
 //import TitleScreen from './scenes/TitleScreen';
 //import Game from './scenes/Game';
