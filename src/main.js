@@ -1,23 +1,10 @@
 import phaser from 'phaser';
+import config from './Config/config';
 import StartScene from './Scenes/StartScene';
 import MapScene from './Scenes/MapScene';
 
 //import TitleScreen from './scenes/TitleScreen';
 //import Game from './scenes/Game';
-
-const config = {
-  width: 800,
-  height: 500,
-  backgroundColor: 0x0080ff,
-  type: Phaser.AUTO,
-  physics: {
-    default: 'arcade',
-    arcade: {
-      gravity: { y: 0 },
-      debug: true,
-    }
-  }
-};
 
 const game = new Phaser.Game(config);
 

@@ -10,12 +10,11 @@ export default class StartScene extends Phaser.Scene {
   create ()
   {
     let know = this.add.text(400,250, 'Hello World!');
-    know.setScale(1.5, 1.5)
+    know.setScale(1.5, 1.5);
   }
 
   update()
   {
-
   }
 
 }
