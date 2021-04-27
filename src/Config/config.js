@@ -5,6 +5,8 @@ const config = {
   height: 500,
   backgroundColor: 0x0080ff,
   type: Phaser.AUTO,
+  zoom: 2,
+  pixelArt: true,
   physics: {
     default: 'arcade',
     arcade: {
@@ -16,7 +18,8 @@ const config = {
   //disableContextMenu: true,
   gameTitle: 'SantosGame',
   hidePhaser : true,
-  scaleMode: 2,
+  scaleMode: .5,
+
 };
 
 export default config;

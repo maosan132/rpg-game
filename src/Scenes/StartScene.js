@@ -4,6 +4,16 @@ import logo from '../assets/microverse_purple.png';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/RPG_assets.png';
 import map from '../assets/map/map.json';
+
+// const StartScene = new Phaser.Class({
+//   Extends: Phaser.Scene,
+
+//   initialize: function StartScene ()
+//   {
+//       Phaser.Scene.call(this, { key: 'StartScene' });
+//   },
+
+// })
 export default class StartScene extends Phaser.Scene {
 
   preload() {
@@ -15,11 +25,9 @@ export default class StartScene extends Phaser.Scene {
   }
 
   create() {
-    let know = this.add.text(400,250, 'Hello World!');
-    know.setScale(1.5, 1.5);
-    this.add.image(200, 200, 'logo').setScale(0.1, 0.1);
-    this.add.sprite(100, 300, 'player');
-    //this.scene.start('MapScene');
+    this.scene.start('MapScene');
+
+
     console.log('create');
   }
 
