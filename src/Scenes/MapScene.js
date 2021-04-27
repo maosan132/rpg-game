@@ -8,13 +8,16 @@ export default class MapScene extends Phaser.Scene {
 
   create() {
     console.log('create mapscene');
-    let map = this.make.tilemap({ key: 'map' });
+    const map = this.make.tilemap({ key: 'map' });
     
-    var tiles = map.addTilesetImage('spritesheet', 'tiles');
-    var grass = map.createLayer('Grass', tiles, 0, 0);
-    var obstacles = map.createLayer('Obstacles', tiles, 0, 0);
+    const tiles = map.addTilesetImage('spritesheet', 'tiles');
+    const grass = map.createLayer('Grass', tiles, 0, 0);
+    const obstacles = map.createLayer('Obstacles', tiles, 0, 0);
     obstacles.setCollisionByExclusion([-1]);
 
+    // Adding the player
+
+    this.player = this.physics.add.sprite(50, 100, 'player', 6);
 
 
 

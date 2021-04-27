@@ -5,6 +5,8 @@ const config = {
   height: 500,
   backgroundColor: 0x0080ff,
   type: Phaser.AUTO,
+  width: 320,
+  height: 240,
   zoom: 2,
   pixelArt: true,
   physics: {
@@ -15,10 +17,10 @@ const config = {
     },
   },
   defaultImage: './assets/microverse_purple.png',
-  //disableContextMenu: true,
+  // disableContextMenu: true,
   gameTitle: 'SantosGame',
   hidePhaser : true,
-  scaleMode: .5,
+  // scaleMode: .5,
 
 };
 
