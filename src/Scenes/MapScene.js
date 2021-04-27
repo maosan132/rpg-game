@@ -14,7 +14,7 @@ export default class MapScene extends Phaser.Scene {
 
     this.player = this.physics.add.sprite(50, 100, 'player', 6);
 
-    // Adding some moere physics
+    // Adding some more physics
     this.physics.world.bounds.width = map.widthInPixels;
     this.physics.world.bounds.height = map.heightInPixels;
     this.player.setCollideWorldBounds(true);
@@ -27,23 +27,74 @@ export default class MapScene extends Phaser.Scene {
 
     // Added cursors for moving player
     this.cursors = this.input.keyboard.createCursorKeys();
+
+    // Cameras
+    this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+    this.cameras.main.startFollow(this.player);
+    this.cameras.main.roundPixels = true;
+
+    // Animation of player's walking
+    this.anims.create({
+      key: 'lefty',
+      frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13]}),
+      frameRate: 10,
+      repeat: -1,
+    });
+
+    this.anims.create({
+      key: 'righty',
+      frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13] }),
+      frameRate: 10,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'upy',
+      frames: this.anims.generateFrameNumbers('player', { frames: [2, 8, 2, 14]}),
+      frameRate: 10,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'downy',
+      frames: this.anims.generateFrameNumbers('player', { frames: [ 0, 6, 0, 12 ] }),
+      frameRate: 10,
+      repeat: -1,
+    });
+
+    // Player should collide with obstacles
+    
   }
 
-  update(time, delta) {
+  update() {
+
+    // player movements
     this.player.body.setVelocity(0);
 
-    // Horizontal movement
     if (this.cursors.left.isDown) {
       this.player.body.setVelocityX(-80);
     } else if (this.cursors.right.isDown) {
       this.player.body.setVelocityX(80);
     }
 
-    // Vertical movement
     if (this.cursors.up.isDown) {
       this.player.body.setVelocityY(-80);
     } else if (this.cursors.down.isDown) {
       this.player.body.setVelocityY(80);
     }
+
+    if (this.cursors.left.isDown) {
+      this.player.anims.play('lefty', true);
+      this.player.flipX = true;
+    } else if (this.cursors.right.isDown) {
+      this.player.anims.play('righty', true);
+      this.player.flipX = false;
+    } else if (this.cursors.up.isDown) {
+      this.player.anims.play('upy', true);
+    } else if (this.cursors.down.isDown) {
+      this.player.anims.play('downy', true);
+    } else {
+      this.player.anims.stop();
+    }
   }
+
+
 }

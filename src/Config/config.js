@@ -1,8 +1,6 @@
 import 'phaser';
 
 const config = {
-  width: 800,
-  height: 500,
   backgroundColor: 0x0080ff,
   type: Phaser.AUTO,
   width: 320,
