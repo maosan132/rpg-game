@@ -1,5 +1,4 @@
 import 'phaser';
-import MapScene from './MapScene';
 import logo from '../assets/microverse_purple.png';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/RPG_assets.png';
@@ -15,7 +14,6 @@ import map from '../assets/map/map.json';
 
 // })
 export default class StartScene extends Phaser.Scene {
-
   preload() {
     this.load.image('logo', logo);
     this.load.image('tiles', tiles);
@@ -33,5 +31,4 @@ export default class StartScene extends Phaser.Scene {
 
   update() {
   }
-
 }
