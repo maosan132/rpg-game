@@ -29,7 +29,7 @@ export default class MapScene extends Phaser.Scene {
 
     this.player = this.physics.add.sprite(50, 100, 'player', 3);
 
-    // Adding some more physics
+    // Adding some more physics and world boundaries
     this.physics.world.bounds.width = map.widthInPixels;
     this.physics.world.bounds.height = map.heightInPixels;
     this.player.setCollideWorldBounds(true);
