@@ -12,7 +12,7 @@
 - Javascript ES6
 - ES6 modules
 - Parcel
-- Phaser 3.5
+- Phaser 3.54
 
 ## Live Demo
 
