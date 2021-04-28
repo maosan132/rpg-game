@@ -27,7 +27,7 @@ export default class MapScene extends Phaser.Scene {
 
     // Creating the player with physics
 
-    this.player = this.physics.add.sprite(50, 100, 'player', 6);
+    this.player = this.physics.add.sprite(50, 100, 'player', 3);
 
     // Adding some more physics
     this.physics.world.bounds.width = map.widthInPixels;
@@ -51,26 +51,26 @@ export default class MapScene extends Phaser.Scene {
     // Animation of player's walking
     this.anims.create({
       key: 'lefty',
-      frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13]}),
+      frames: this.anims.generateFrameNumbers('player', { frames: [4, 10, 4, 16]}),
       frameRate: 10,
       repeat: -1,
     });
 
     this.anims.create({
       key: 'righty',
-      frames: this.anims.generateFrameNumbers('player', { frames: [1, 7, 1, 13] }),
+      frames: this.anims.generateFrameNumbers('player', { frames: [4, 10, 4, 16] }),
       frameRate: 10,
       repeat: -1,
     });
     this.anims.create({
       key: 'upy',
-      frames: this.anims.generateFrameNumbers('player', { frames: [2, 8, 2, 14]}),
+      frames: this.anims.generateFrameNumbers('player', { frames: [5, 11, 5, 17] }),
       frameRate: 10,
       repeat: -1,
     });
     this.anims.create({
       key: 'downy',
-      frames: this.anims.generateFrameNumbers('player', { frames: [ 0, 6, 0, 12 ] }),
+      frames: this.anims.generateFrameNumbers('player', { frames: [3, 9, 3, 15] }),
       frameRate: 10,
       repeat: -1,
     });
