@@ -7,5 +7,4 @@ export default class Player extends Unit {
     // this.setScale(2);
     this.flipX = true;
   }
-
 }

@@ -7,5 +7,7 @@ export default class EnemiesMenu extends Menu {
     super(x, y, scene);
   }
 
-  confirm() {}
+  confirm() {
+    this.scene.events.emit('Enemy', this.menuItemIndex);
+  }
 }

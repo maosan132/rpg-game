@@ -8,9 +8,8 @@ import enemy1 from '../assets/enemy1.png';
 import enemy2 from '../assets/enemy2.png';
 
 export default class StartScene extends Phaser.Scene {
-
   constructor() {
-    super({ key: "StartScene" });
+    super({ key: 'StartScene' });
   }
 
   preload() {

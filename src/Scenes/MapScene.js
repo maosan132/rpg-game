@@ -2,7 +2,7 @@ import 'phaser';
 
 export default class MapScene extends Phaser.Scene {
   constructor() {
-    super({ key: "MapScene" }); // NFI what this does????
+    super({ key: 'MapScene' }); // NFI what this does????
   }
 
   onMeetEnemy(player, zone) {
