@@ -10,31 +10,28 @@ export default class FightScene extends Phaser.Scene {
   preload() {}
 
   create() {
-    // player character - warrior
-    const warrior = new Player(this, 250, 50, 'player', 1, 'Warrior', 100, 20);
-    this.add.existing(warrior);
 
-    // player character - mage
-    const mage = new Player(this, 250, 100, 'player', 4, 'Mage', 80, 8);
-    this.add.existing(mage);
+    const robot = new Player(this, 220, 70, 'player', 1, 'Destroyer', 100, 20);
+    this.add.existing(robot);
 
-    const enemy1 = new Enemy(this, 50, 50, 'enemy1', null, 'Dragon', 50, 3);
-    this.add.existing(enemy1);
+    const knight = new Player(this, 220, 120, 'player', 4, 'Swordman', 80, 8);
+    this.add.existing(knight);
 
-    const enemy2 = new Enemy(this, 50, 100, 'enemy2', null, 'Dragon2', 50, 3);
-    this.add.existing(enemy2);
+    const monster1 = new Enemy(this, 70, 70, 'enemy1', null, 'Monster1', 50, 3);
+    this.add.existing(monster1);
 
-    // array with players
-    this.players = [warrior, mage];
-    // array with enemies
-    this.enemies = [enemy1, enemy2];
+    const monster2 = new Enemy(this, 70, 120, 'enemy2', null, 'Monster2', 50, 3);
+    this.add.existing(monster2);
+
+    this.players = [robot, knight];
+    this.enemies = [monster1, monster2];
     // array with both parties, who will attack
     this.units = this.players.concat(this.enemies);
 
     // Run UserScene parallelly
     this.scene.launch('UserScene');
 
-    // Set background to green color
+    // Set background to lilly color
     this.cameras.main.setBackgroundColor('rgba(200, 100, 120, 0.5)');
 
     // This index will show us the currently active unit in the units array
@@ -67,7 +64,11 @@ export default class FightScene extends Phaser.Scene {
     if (action === 'attack') {
       this.units[this.index].attack(this.enemies[target]);
     }
-    this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
+    this.time.addEvent({
+      delay: 3000,
+      callback: this.nextTurn,
+      callbackScope: this,
+    });
   }
 
   update() {

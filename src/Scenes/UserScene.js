@@ -5,10 +5,16 @@ import EnemiesMenu from '../UI/EnemiesMenu';
 import Message from '../UI/Message';
 
 export default class UserScene extends Phaser.Scene {
+
+  constructor() {
+    super({ key: 'UserScene' });
+  }
+
   create() {
+    console.log('inside userScene');
     // Add lines and squares to screen
     this.graphics = this.add.graphics();
-    this.graphics.lineStyle(4, 0x555555);
+    this.graphics.lineStyle(4, 0xffff00);
     this.graphics.fillStyle(0x531f4d, 1);
     this.graphics.strokeRect(2, 190, 90, 50); // (x, y, w, h)
     this.graphics.fillRect(2, 190, 90, 50);
@@ -20,9 +26,9 @@ export default class UserScene extends Phaser.Scene {
     // Container to hold all menus
     this.menus = this.add.container();
 
-    this.playersMenu = new PlayersMenu(195, 153, this);
-    this.actionsMenu = new ActionsMenu(100, 153, this);
-    this.enemiesMenu = new EnemiesMenu(8, 153, this);
+    this.playersMenu = new PlayersMenu(195, 195, this);
+    this.actionsMenu = new ActionsMenu(113, 205, this);
+    this.enemiesMenu = new EnemiesMenu(8, 195, this);
 
     // Current menu
     this.currentMenu = this.actionsMenu;
@@ -45,12 +51,12 @@ export default class UserScene extends Phaser.Scene {
 
     this.events.on('Enemy', this.onEnemy, this);
 
-    // start the first turn from the UserScene
-    this.fightScene.nextTurn();
-
     // add message object to UserScene
     this.message = new Message(this, this.fightScene.events);
     this.add.existing(this.message);
+
+    // start the first turn from the UserScene
+    this.fightScene.nextTurn();
   }
 
   remapPlayers() {

@@ -1,6 +1,5 @@
 import 'phaser';
 // import Unit from './Unit';
-
 export default class Message extends Phaser.GameObjects.Container {
   constructor(scene, events) {
     super(scene, 160, 30);
