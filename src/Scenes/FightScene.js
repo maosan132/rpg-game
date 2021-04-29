@@ -53,9 +53,9 @@ export default class FightScene extends Phaser.Scene {
         this.events.emit('PlayerSelect', this.index);
       } else { // else if its enemy unit
         // pick random hero
-        const randomHero = Math.floor(Math.random() * this.heroes.length);
+        const randomHero = Math.floor(Math.random() * this.players.length);
         // call the enemy's attack function
-        this.units[this.index].attack(this.heroes[randomHero]);
+        this.units[this.index].attack(this.players[randomHero]);
         // add timer for the next turn, so will have smooth gameplay
         this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
       }

@@ -75,6 +75,9 @@ export default class UserScene extends Phaser.Scene {
         this.currentMenu.confirm();
       }
     }
+
+    this.message = new Message(this, this.fightScene.events);
+    this.add.existing(this.message);
   }
 
   // select the id-th element from the playersMenu
