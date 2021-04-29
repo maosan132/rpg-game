@@ -1,4 +1,5 @@
 import 'phaser';
+
 export default class Unit extends Phaser.GameObjects.Sprite {
 
   constructor(scene, x, y, texture, frame, type, hp, damage) {
@@ -16,5 +17,4 @@ export default class Unit extends Phaser.GameObjects.Sprite {
   takeDamage(damage) {
     this.hp -= damage;
   }
-
 }

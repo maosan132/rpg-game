@@ -1,6 +1,10 @@
 import 'phaser';
 
 export default class MapScene extends Phaser.Scene {
+  constructor() {
+    super({ key: "MapScene" }); // NFI what this does????
+  }
+
   onMeetEnemy(player, zone) {
     zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
     zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
@@ -19,7 +23,7 @@ export default class MapScene extends Phaser.Scene {
     const map = this.make.tilemap({ key: 'map' });
 
     const tiles = map.addTilesetImage('spritesheet', 'tiles');
-    // const grass = map.createLayer('Grass', tiles, 0, 0);
+    // const grass = map.createLayer('Grass', tiles, 0, 0); // Overrided by bg
     const obstacles = map.createLayer('Obstacles', tiles, 0, 0);
     obstacles.setCollisionByExclusion([-1]);
 
