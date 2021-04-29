@@ -12,5 +12,5 @@ export default class MenuItem extends Phaser.GameObjects.Text {
 
   deselect() {
     this.setColor('#ffffff');
-}
+  }
 }

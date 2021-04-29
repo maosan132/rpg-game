@@ -2,7 +2,7 @@ import 'phaser';
 import PlayersMenu from '../UI/PlayersMenu';
 import ActionsMenu from '../UI/ActionsMenu';
 import EnemiesMenu from '../UI/EnemiesMenu';
-import FightScene from '../Scenes/FightScene'
+// import FightScene from '../Scenes/FightScene'
 
 export default class UserScene extends Phaser.Scene {
   create() {
@@ -20,7 +20,7 @@ export default class UserScene extends Phaser.Scene {
     // basic container to hold all menus
     this.menus = this.add.container();
 
-    this.PlayersMenu = new PlayersMenu(195, 153, this);
+    this.playersMenu = new PlayersMenu(195, 153, this);
     this.actionsMenu = new ActionsMenu(100, 153, this);
     this.enemiesMenu = new EnemiesMenu(8, 153, this);
 
@@ -28,7 +28,7 @@ export default class UserScene extends Phaser.Scene {
     this.currentMenu = this.actionsMenu;
 
     // add menus to the container
-    this.menus.add(this.PlayersMenu);
+    this.menus.add(this.playersMenu);
     this.menus.add(this.actionsMenu);
     this.menus.add(this.enemiesMenu);
 
@@ -40,12 +40,16 @@ export default class UserScene extends Phaser.Scene {
 
   remapPlayers() {
     const players = this.FightScene.players; // use object destructuring
-    this.PlayersMenu.remap(players);
+    console.log(players);
+    console.log(this.playersMenu);
+    this.playersMenu.remap(players);
   }
 
   remapEnemies() {
     const enemies = this.FightScene.enemies; // use object destructuring
-    this.EnemiesMenu.remap(enemies);
+    console.log(enemies);
+    console.log(this.enemiesMenu);
+    this.enemiesMenu.remap(enemies);
   }
 
   update() {}

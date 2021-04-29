@@ -2,11 +2,11 @@ import 'phaser';
 import MenuItem from './MenuItem';
 
 export default class Menu extends Phaser.GameObjects.Container {
-  constructor(x, y, scene, heroes) {
+  constructor(x, y, scene, players) {
     super(scene, x, y);
     this.menuItems = [];
     this.menuItemIndex = 0;
-    this.heroes = heroes;
+    this.players = players;
     this.x = x; // shorthand? this.x
     this.y = y; // shorthand? this.y
   }
@@ -45,5 +45,21 @@ export default class Menu extends Phaser.GameObjects.Container {
 
   confirm() {
     // Confirm ? do
+  }
+
+  clear() {
+    for (let i = 0; i < this.menuItems.length; i++) {
+      this.menuItems[i].destroy(); // find out what this does
+    }
+    this.menuItems.length = 0;
+    this.menuItemIndex = 0;
+  }
+
+  remap(units) {
+    this.clear();
+    for (let i = 0; i < units.length; i++) {
+      const unit = units[i];
+      this.addMenuItem(unit.type);
+    }
   }
 }
