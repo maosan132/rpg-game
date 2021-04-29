@@ -25,12 +25,12 @@ export default class FightScene extends Phaser.Scene {
     const enemy2 = new Enemy(this, 50, 100, 'enemy2', null, 'Dragon2', 50, 3);
     this.add.existing(enemy2);
 
-    // array with heroes
-    this.heroes = [ warrior, mage ];
+    // array with players
+    this.players = [ warrior, mage ];
     // array with enemies
     this.enemies = [ enemy1, enemy2 ];
     // array with both parties, who will attack
-    this.units = this.heroes.concat(this.enemies);
+    this.units = this.players.concat(this.enemies); // wtf are 'units' in gaming jargon?
     // Run UserScene parallelly
     this.scene.launch('UserScene');
 

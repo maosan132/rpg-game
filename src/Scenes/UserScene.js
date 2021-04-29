@@ -2,6 +2,7 @@ import 'phaser';
 import PlayersMenu from '../UI/PlayersMenu';
 import ActionsMenu from '../UI/ActionsMenu';
 import EnemiesMenu from '../UI/EnemiesMenu';
+import FightScene from '../Scenes/FightScene'
 
 export default class UserScene extends Phaser.Scene {
   create() {
@@ -32,6 +33,19 @@ export default class UserScene extends Phaser.Scene {
     this.menus.add(this.enemiesMenu);
 
     this.FightScene = this.scene.get('FightScene');
+
+    this.remapPlayers();
+    this.remapEnemies();
+  }
+
+  remapPlayers() {
+    const players = this.FightScene.players; // use object destructuring
+    this.PlayersMenu.remap(players);
+  }
+
+  remapEnemies() {
+    const enemies = this.FightScene.enemies; // use object destructuring
+    this.EnemiesMenu.remap(enemies);
   }
 
   update() {}
