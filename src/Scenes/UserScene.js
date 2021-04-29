@@ -1,9 +1,7 @@
 import 'phaser';
 
 export default class UserScene extends Phaser.Scene {
-  preload() {
-
-  }
+  preload() {}
 
   create() {
     // Add lines and squares to screen
@@ -18,6 +16,5 @@ export default class UserScene extends Phaser.Scene {
     this.graphics.fillRect(188, 190, 130, 50);
   }
 
-  update() {
-  }
+  update() {}
 }

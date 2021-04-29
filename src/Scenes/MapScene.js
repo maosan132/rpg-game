@@ -1,7 +1,6 @@
 import 'phaser';
 
 export default class MapScene extends Phaser.Scene {
-
   onMeetEnemy(player, zone) {
     zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
     zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
@@ -13,7 +12,6 @@ export default class MapScene extends Phaser.Scene {
   }
 
   create() {
-
     // Set the background
     this.add.image(240, 240, 'bg');
 
@@ -51,7 +49,7 @@ export default class MapScene extends Phaser.Scene {
     // Animation of player's walking
     this.anims.create({
       key: 'lefty',
-      frames: this.anims.generateFrameNumbers('player', { frames: [4, 10, 4, 16]}),
+      frames: this.anims.generateFrameNumbers('player', { frames: [4, 10, 4, 16] }),
       frameRate: 10,
       repeat: -1,
     });
@@ -92,7 +90,6 @@ export default class MapScene extends Phaser.Scene {
   }
 
   update() {
-
     // player movements
     this.player.body.setVelocity(0);
 
@@ -122,6 +119,4 @@ export default class MapScene extends Phaser.Scene {
       this.player.anims.stop();
     }
   }
-
-
 }
