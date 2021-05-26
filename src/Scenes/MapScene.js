@@ -12,7 +12,9 @@ export default class MapScene extends Phaser.Scene {
     // shake the world
     this.cameras.main.flash(300);
 
-    // start battle
+    // switch to FightScene
+    this.scene.switch('FightScene');
+
   }
 
   create() {

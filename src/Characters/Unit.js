@@ -7,6 +7,13 @@ export default class Unit extends Phaser.GameObjects.Sprite {
     this.hp = hp;
     this.maxHp = this.hp;
     this.damage = damage; // default damage
+    this.living = true;
+    this.menuItem = null;
+  }
+
+  // Notify menu item as per unit is dead
+  setMenuItem(i) {
+    this.menuItem = i;
   }
 
   attack(target) {
@@ -19,7 +26,10 @@ export default class Unit extends Phaser.GameObjects.Sprite {
     this.hp -= damage;
     if (this.hp <= 0) {
       this.hp = 0;
-      this.alive = false;
+      this.menuItem.unitKilled();
+      this.living = false; // this.alive = false;
+      this.visible = false;
+      this.menuItem = null;
     }
   }
 }
