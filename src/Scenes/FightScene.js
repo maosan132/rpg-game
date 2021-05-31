@@ -13,7 +13,7 @@ export default class FightScene extends Phaser.Scene {
   }
 
   wake() {
-    this.scene.run('UIScene');
+    this.scene.run('UserScene');
     this.time.addEvent({
       delay: 2000,
       callback: this.exitFight,
@@ -26,8 +26,9 @@ export default class FightScene extends Phaser.Scene {
   create() {
     // Set background to lilly color
     this.cameras.main.setBackgroundColor('rgba(200, 100, 120, 0.5)');
-
+    // next two lines deals with startin' the fight
     this.startFight();
+    this.sys.events.on('wake', this.startFight);
 
     // const timeEvent = this.time.addEvent({ // Where does this prop get called? by itself?
     //   delay: 2000,
@@ -35,13 +36,13 @@ export default class FightScene extends Phaser.Scene {
     //   callbackScope: this,
     // });
 
-    this.sys.events.on('wake', this.wake, this);
-
     const timeEvent = this.time.addEvent({
-      delay: 92000,
+      delay: 2000,
       callback: this.exitFight,
       callbackScope: this,
     });
+
+    this.sys.events.on('wake', this.wake, this);
   }
 
   nextTurn() {
