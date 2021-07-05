@@ -14,7 +14,6 @@ export default class MapScene extends Phaser.Scene {
 
     // switch to FightScene
     this.scene.switch('FightScene');
-
   }
 
   create() {
@@ -25,12 +24,11 @@ export default class MapScene extends Phaser.Scene {
     const map = this.make.tilemap({ key: 'map' });
 
     const tiles = map.addTilesetImage('spritesheet', 'tiles');
-    // const grass = map.createLayer('Grass', tiles, 0, 0); // Overrided by bg
+    // const grass = map.createLayer('Grass', tiles, 0, 0); // Overrode by bg
     const obstacles = map.createLayer('Obstacles', tiles, 0, 0);
-    obstacles.setCollisionByExclusion([-1]);
+    obstacles.setCollisionByExclusion([-1]); // make all tiles in obstacles collidable
 
     // Creating the player with physics
-
     this.player = this.physics.add.sprite(50, 100, 'player', 3);
 
     // Adding some more physics and world boundaries
@@ -39,7 +37,7 @@ export default class MapScene extends Phaser.Scene {
     this.player.setCollideWorldBounds(true);
     console.log(map.widthInPixels, map.heightInPixels);
 
-    // Erase these lines
+    // Erase these lines!
     const know = this.add.text(400, 250, 'Hello World!').setOrigin(0.5);
     know.setScale(1.5, 1.5);
     this.add.sprite(100, 300, 'player').setScale(1.5);
@@ -50,7 +48,7 @@ export default class MapScene extends Phaser.Scene {
     // Cameras
     this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
     this.cameras.main.startFollow(this.player);
-    this.cameras.main.roundPixels = true;
+    this.cameras.main.roundPixels = true; // avoid tile bleed
 
     // Animation of player's walking
     this.anims.create({
@@ -84,15 +82,16 @@ export default class MapScene extends Phaser.Scene {
 
     // Plant 30 zones for battle when player collide to them
     this.seeds = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
-    const arr = new Array(30).fill(1); // create an array of 30 items, to use as an iterator
+    const arr = new Array(30).fill(1); // Create an array of 30 items, to use as an iterator
     arr.forEach(() => {
       const x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
       const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-
-      // parameters of seed zones
-      this.seeds.create(x, y, 20, 20);
+      this.seeds.create(x, y, 20, 20);// Parameters of seed zones
     });
-    this.physics.add.overlap(this.player, this.seeds, this.onMeetEnemy, false, this);
+
+    this.physics.add.overlap(this.player, this.seeds, this.onMeetEnemy, false, this); // Collider
+
+    this.sys.events.on('wake', this.wake, this); // Listen for wake event
   }
 
   update() {
@@ -124,5 +123,12 @@ export default class MapScene extends Phaser.Scene {
     } else {
       this.player.anims.stop();
     }
+  }
+
+  wake() {
+    this.cursors.left.reset();
+    this.cursors.right.reset();
+    this.cursors.up.reset();
+    this.cursors.down.reset();
   }
 }

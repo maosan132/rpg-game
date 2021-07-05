@@ -1,5 +1,6 @@
 import 'phaser';
 
+// A unit is either a player or an enemy
 export default class Unit extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, texture, frame, type, hp, damage) {
     super(scene, x, y, texture, frame, type, hp, damage);

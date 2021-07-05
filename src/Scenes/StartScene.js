@@ -27,6 +27,6 @@ export default class StartScene extends Phaser.Scene {
 
   create() {
     this.scene.start('MapScene');
-    console.log('create');
+    console.log('StartScene #create');
   }
 }

@@ -18,4 +18,10 @@ export default class MenuItem extends Phaser.GameObjects.Text {
   deselect() {
     this.setColor('#ffffff');
   }
+
+  // when the associated unit gets killed
+  unitKilled() {
+    this.active = false;
+    this.visible = false;
+  }
 }

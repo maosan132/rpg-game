@@ -11,7 +11,7 @@ export default class UserScene extends Phaser.Scene {
   }
 
   create() {
-    console.log('inside userScene');
+    console.log('inside userScene #create');
     // Add lines and squares to screen
     this.graphics = this.add.graphics();
     this.graphics.lineStyle(4, 0xffff00);
@@ -40,37 +40,48 @@ export default class UserScene extends Phaser.Scene {
 
     this.fightScene = this.scene.get('FightScene'); // To access the FightScene from the UserScene
 
-    this.remapPlayers();
-    this.remapEnemies();
+    //this.remapPlayers();
+    //this.remapEnemies();
 
     this.input.keyboard.on('keydown', this.onKeyInput, this);
 
+    // when it's player unit turn to move
     this.fightScene.events.on('PlayerSelect', this.onPlayerSelect, this); // Listen for ‘PlayerSelect’
 
-    this.events.on('SelectEnemies', this.onSelectEnemies, this);
+    // when the action on the menu is selected *
+    this.events.on('SelectedAction', this.onSelectedAction, this);
 
+    // an enemy is selected
     this.events.on('Enemy', this.onEnemy, this);
+
+    // when the scene receives wake event
+    this.sys.events.on('wake', this.createMenu, this);
 
     // add message object to UserScene
     this.message = new Message(this, this.fightScene.events);
     this.add.existing(this.message);
 
     // start the first turn from the UserScene
-    this.fightScene.nextTurn();
+    // this.fightScene.nextTurn();
+
+    this.createMenu();
   }
 
   remapPlayers() {
+    console.log('inside userScene #remapplayers');
     const { players } = this.fightScene; // use object destructuring
     this.playersMenu.remap(players);
   }
 
   remapEnemies() {
+    console.log('inside userScene #remapenemies');
     const { enemies } = this.fightScene; // use object destructuring
     this.enemiesMenu.remap(enemies);
   }
 
   onKeyInput(e) {
-    if (this.currentMenu) {
+    console.log('inside userScene #onkeyinput');
+    if (this.currentMenu && this.currentMenu.selected) {
       if (e.code === 'ArrowUp') {
         this.currentMenu.moveSelectionUp();
       } else if (e.code === 'ArrowDown') {
@@ -88,24 +99,38 @@ export default class UserScene extends Phaser.Scene {
 
   // select the id-th element from the playersMenu
   onPlayerSelect(id) {
+    console.log('inside userScene #onplayerselect');
     this.playersMenu.select(id);
     this.actionsMenu.select(0);
     this.currentMenu = this.actionsMenu;
   }
 
   // make the enemiesMenu active and we select the first enemy
-  onSelectEnemies() {
+  onSelectedAction() {
+    console.log('inside userScene #selectedaction');
     this.currentMenu = this.enemiesMenu;
     this.enemiesMenu.select(0);
   }
 
   // will deselect all menus and then will send data to the FightScene
   onEnemy(index) {
+    console.log('inside userScene #onenemy');
     console.log(this.playersMenu);
     this.playersMenu.deselect();
     this.actionsMenu.deselect();
     this.enemiesMenu.deselect();
     this.currentMenu = null;
     this.fightScene.receivePlayerSelection('attack', index);
+  }
+
+  // Manages menu instances
+  createMenu() {
+    console.log('inside userScene #createMenu');
+    // map player menu items to players
+    this.remapPlayers();
+    // map enemies menu items to enemies
+    this.remapEnemies();
+    // first move
+    this.fightScene.nextTurn();
   }
 }
