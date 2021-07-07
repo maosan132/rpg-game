@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import Player from '../Characters/Player';
 import Enemy from '../Characters/Enemy';
 
@@ -29,27 +29,19 @@ export default class FightScene extends Phaser.Scene {
     // next two lines deals with startin' the fight
     this.startFight();
     this.sys.events.on('wake', this.startFight, this);
-
-    // const timeEvent = this.time.addEvent({
-    //   delay: 2000,
-    //   callback: this.exitFight,
-    //   callbackScope: this,
-    // });
-
-    // this.sys.events.on('wake', this.wake, this);
   }
 
   startFight() {
-    const robot = new Player(this, 220, 70, 'player', 1, 'Destroyer', 100, 20); // Creates character and skills
+    const robot = new Player(this, 220, 70, 'player', 1, '**Destroyer', 100, 20); // Creates character and skills
     this.add.existing(robot);
 
-    const knight = new Player(this, 220, 120, 'player', 4, 'Swordman', 80, 8);
+    const knight = new Player(this, 220, 120, 'player', 4, '**Swordman', 80, 8);
     this.add.existing(knight);
 
-    const monster1 = new Enemy(this, 70, 70, 'enemy1', null, 'Monster1', 50, 3);
+    const monster1 = new Enemy(this, 70, 70, 'enemy1', null, '*Monster1', 50, 3);
     this.add.existing(monster1);
 
-    const monster2 = new Enemy(this, 70, 120, 'enemy2', null, 'Monster2', 50, 3);
+    const monster2 = new Enemy(this, 70, 120, 'enemy2', null, '*Monster2', 50, 3);
     this.add.existing(monster2);
 
     this.players = [robot, knight];
@@ -60,7 +52,7 @@ export default class FightScene extends Phaser.Scene {
     this.index = -1;// currently active unit
 
     // Run UserScene parallelly
-    this.scene.run('UserScene'); // in first part I used '.launch'
+    this.scene.run('UserScene'); // in first part I used 'scene.launch'
   }
 
   nextTurn() {
@@ -84,7 +76,7 @@ export default class FightScene extends Phaser.Scene {
       let randomHero = 0;
       do {
         randomHero = Math.floor(Math.random() * this.players.length);
-      } while (!this.heroes[randomHero].living);
+      } while (!this.players[randomHero].living);
       // call the enemy's attack function
       this.units[this.index].attack(this.players[randomHero]);
       // add timer for the next turn, so will have smooth gameplay

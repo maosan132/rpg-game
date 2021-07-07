@@ -1,19 +1,8 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 export default class MapScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'MapScene' }); // NFI what this does????
-  }
-
-  onMeetEnemy(player, zone) {
-    zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-    zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-
-    // shake the world
-    this.cameras.main.flash(300);
-
-    // switch to FightScene
-    this.scene.switch('FightScene');
+    super({ key: 'MapScene' }); // NFI what 'key' does????
   }
 
   create() {
@@ -24,9 +13,9 @@ export default class MapScene extends Phaser.Scene {
     const map = this.make.tilemap({ key: 'map' });
 
     const tiles = map.addTilesetImage('spritesheet', 'tiles');
-    // const grass = map.createLayer('Grass', tiles, 0, 0); // Overrode by bg
+    // const grass = map.createLayer('Grass', tiles, 0, 0); // Overrode by bg above #create 1st line
     const obstacles = map.createLayer('Obstacles', tiles, 0, 0);
-    obstacles.setCollisionByExclusion([-1]); // make all tiles in obstacles collidable
+    obstacles.setCollisionByExclusion([-1]); // set all obstacles to collide
 
     // Creating the player with physics
     this.player = this.physics.add.sprite(50, 100, 'player', 3);
@@ -77,10 +66,10 @@ export default class MapScene extends Phaser.Scene {
       repeat: -1,
     });
 
-    // Player should collide with obstacles
+    // Player should collide with obstacles (rocks)
     this.physics.add.collider(this.player, obstacles);
 
-    // Plant 30 zones for battle when player collide to them
+    // Plant 30 zones for battle when player touches them
     this.seeds = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
     const arr = new Array(30).fill(1); // Create an array of 30 items, to use as an iterator
     arr.forEach(() => {
@@ -92,6 +81,27 @@ export default class MapScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.seeds, this.onMeetEnemy, false, this); // Collider
 
     this.sys.events.on('wake', this.wake, this); // Listen for wake event
+  }
+
+  wake() {
+    this.cursors.left.reset();
+    this.cursors.right.reset();
+    this.cursors.up.reset();
+    this.cursors.down.reset();
+  }
+
+  onMeetEnemy(player, zone) {
+    console.log('inside onMeetEnemy');
+    zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+    zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+
+    // shake the world
+    this.cameras.main.shake(300);
+
+    this.input.stopPropagation();
+
+    // switch to FightScene
+    this.scene.switch('FightScene');
   }
 
   update() {
@@ -123,12 +133,5 @@ export default class MapScene extends Phaser.Scene {
     } else {
       this.player.anims.stop();
     }
-  }
-
-  wake() {
-    this.cursors.left.reset();
-    this.cursors.right.reset();
-    this.cursors.up.reset();
-    this.cursors.down.reset();
   }
 }

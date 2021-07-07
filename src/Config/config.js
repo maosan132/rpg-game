@@ -1,7 +1,4 @@
 import 'phaser';
-import FightScene from '../Scenes/FightScene';
-import StartScene from '../Scenes/StartScene';
-import UserScene from '../Scenes/UserScene';
 
 const config = {
   backgroundColor: 0x0080ff,
@@ -23,6 +20,7 @@ const config = {
   hidePhaser: true,
   // scaleMode: .5,
   // scene: [StartScene, FightScene, UserScene],
+
 };
 
 export default config;

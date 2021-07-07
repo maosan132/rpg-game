@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import PlayersMenu from '../UI/PlayersMenu';
 import ActionsMenu from '../UI/ActionsMenu';
 import EnemiesMenu from '../UI/EnemiesMenu';
