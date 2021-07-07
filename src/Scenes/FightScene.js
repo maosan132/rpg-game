@@ -7,22 +7,6 @@ export default class FightScene extends Phaser.Scene {
     super({ key: 'FightScene' });
   }
 
-  // exitFight() {
-  //   this.scene.sleep('UserScene');
-  //   this.scene.switch('MapScene');
-  // }
-
-  // wake() {
-  //   this.scene.run('UserScene');
-  //   this.time.addEvent({
-  //     delay: 2000,
-  //     callback: this.exitFight,
-  //     callbackScope: this,
-  //   });
-  // }
-
-  preload() {}
-
   create() {
     // Set background to lilly color
     this.cameras.main.setBackgroundColor('rgba(200, 100, 120, 0.5)');
@@ -56,7 +40,6 @@ export default class FightScene extends Phaser.Scene {
   }
 
   nextTurn() {
-    console.log('inside fightscene #nexturn');
     if (this.checkEndBattle()) {
       this.endBattle();
       return;
@@ -80,7 +63,6 @@ export default class FightScene extends Phaser.Scene {
       // call the enemy's attack function
       this.units[this.index].attack(this.players[randomHero]);
       // add timer for the next turn, so will have smooth gameplay
-      console.log('before 3 secs');
       this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
     }
   }
@@ -124,8 +106,5 @@ export default class FightScene extends Phaser.Scene {
     this.scene.sleep('UserScene');
     // return to WorldScene and sleep current BattleScene
     this.scene.switch('MapScene');
-  }
-
-  update() {
   }
 }

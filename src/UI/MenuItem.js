@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-// import Unit from './Unit';
 
 export default class MenuItem extends Phaser.GameObjects.Text {
   constructor(x, y, text, scene) {

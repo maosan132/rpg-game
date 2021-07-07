@@ -24,7 +24,6 @@ export default class MapScene extends Phaser.Scene {
     this.physics.world.bounds.width = map.widthInPixels;
     this.physics.world.bounds.height = map.heightInPixels;
     this.player.setCollideWorldBounds(true);
-    console.log(map.widthInPixels, map.heightInPixels);
 
     // Erase these lines!
     const know = this.add.text(400, 250, 'Hello World!').setOrigin(0.5);
@@ -91,7 +90,6 @@ export default class MapScene extends Phaser.Scene {
   }
 
   onMeetEnemy(player, zone) {
-    console.log('inside onMeetEnemy');
     zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
     zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
 

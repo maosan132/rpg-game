@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 import logo from '../assets/microverse_purple.png';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/new_assetsX2.png';
@@ -18,7 +18,6 @@ export default class StartScene extends Phaser.Scene {
     this.load.image('bg', bg); // World surface
     this.load.tilemapTiledJSON('map', map);
     this.load.spritesheet('player', player, { frameWidth: 32, frameHeight: 32 }); // hero1
-    console.log('preloader');
 
     // load enemy characters
     this.load.image('enemy1', enemy1);
@@ -27,6 +26,5 @@ export default class StartScene extends Phaser.Scene {
 
   create() {
     this.scene.start('MapScene');
-    console.log('StartScene #create');
   }
 }
