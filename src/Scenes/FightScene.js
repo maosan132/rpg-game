@@ -37,6 +37,17 @@ export default class FightScene extends Phaser.Scene {
 
     // Run UserScene parallelly
     this.scene.run('UserScene'); // in first part I used 'scene.launch'
+
+    // score lines
+    const scoreCaption1 = this.add.text(10, 6, 'Enemy: ');
+    scoreCaption1.setScale(0.8);
+    const scoreCaption2 = this.add.text(210, 6, 'Player: ');
+    scoreCaption2.setScale(0.8);
+    let score1 = 150;
+    let score2 = 0;
+    const enemyScore = this.add.text(65, 6, `${score1}`);
+    const heroScore = this.add.text(275, 6, `${score2}`);
+    // this.add.sprite(100, 300, 'player').setScale(3.5);
   }
 
   nextTurn() {

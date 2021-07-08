@@ -25,11 +25,6 @@ export default class MapScene extends Phaser.Scene {
     this.physics.world.bounds.height = map.heightInPixels;
     this.player.setCollideWorldBounds(true);
 
-    // Erase these lines!
-    const know = this.add.text(400, 250, 'Hello World!').setOrigin(0.5);
-    know.setScale(1.5, 1.5);
-    this.add.sprite(100, 300, 'player').setScale(1.5);
-
     // Added cursors for moving player
     this.cursors = this.input.keyboard.createCursorKeys();
 
