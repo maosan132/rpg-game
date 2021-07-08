@@ -5,7 +5,6 @@ import EnemiesMenu from '../UI/EnemiesMenu';
 import Message from '../UI/Message';
 
 export default class UserScene extends Phaser.Scene {
-
   constructor() {
     super({ key: 'UserScene' });
   }
@@ -80,7 +79,7 @@ export default class UserScene extends Phaser.Scene {
       } else if (e.code === 'ArrowDown') {
         this.currentMenu.moveSelectionDown();
       } else if (e.code === 'ArrowRight' || e.code === 'Shift') {
-
+        this.currentMenu.confirm(); // will be changed, probably to trigger a tone
       } else if (e.code === 'Space' || e.code === 'ArrowLeft') {
         this.currentMenu.confirm();
       }
@@ -89,6 +88,7 @@ export default class UserScene extends Phaser.Scene {
     this.message = new Message(this, this.fightScene.events);
     this.add.existing(this.message);
   }
+
 
   // select the id-th element from the playersMenu
   onPlayerSelect(id) {

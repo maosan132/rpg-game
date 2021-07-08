@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 const config = {
   backgroundColor: 0x0080ff,

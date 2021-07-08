@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default class MapScene extends Phaser.Scene {
   constructor() {
-    super({ key: 'MapScene' }); // NFI what 'key' does????
+    super({ key: 'MapScene' }); // TODO: find out what key keyword does
   }
 
   create() {

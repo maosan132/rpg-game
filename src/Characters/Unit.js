@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 // A unit is either a player or an enemy
 export default class Unit extends Phaser.GameObjects.Sprite {

@@ -57,15 +57,9 @@ export default class Menu extends Phaser.GameObjects.Container {
     this.selected = false;
   }
 
-  confirm() {
-    // Confirm ? do
-  }
-
   // Remove menu
   clear() {
-    for (let i = 0; i < this.menuItems.length; i++) {
-      this.menuItems[i].destroy(); // find out what this does
-    }
+    this.menuItems.forEach(i => i.destroy());
     this.menuItems.length = 0;
     this.menuItemIndex = 0;
   }
@@ -73,11 +67,10 @@ export default class Menu extends Phaser.GameObjects.Container {
   // Recreate menu
   remap(units) {
     this.clear();
-    for (let i = 0; i < units.length; i++) {
-      const unit = units[i];
+    units.forEach(i => {
+      const unit = i;
       unit.setMenuItem(this.addMenuItem(unit.type));
-      // this.addMenuItem(unit.type);
-    }
+    });
     this.menuItemIndex = 0;
   }
 }

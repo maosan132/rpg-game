@@ -16,16 +16,16 @@ export default class FightScene extends Phaser.Scene {
   }
 
   startFight() {
-    const robot = new Player(this, 220, 70, 'player', 1, '**Destroyer', 100, 20); // Creates character and skills
+    const robot = new Player(this, 220, 70, 'player', 1, 'Destroyer', 100, 20); // Creates character and skills
     this.add.existing(robot);
 
-    const knight = new Player(this, 220, 120, 'player', 4, '**Swordman', 80, 8);
+    const knight = new Player(this, 220, 120, 'player', 4, 'Swordman', 80, 8);
     this.add.existing(knight);
 
-    const monster1 = new Enemy(this, 70, 70, 'enemy1', null, '*Monster1', 50, 3);
+    const monster1 = new Enemy(this, 70, 70, 'enemy1', null, 'Monster1', 50, 3);
     this.add.existing(monster1);
 
-    const monster2 = new Enemy(this, 70, 120, 'enemy2', null, '*Monster2', 50, 3);
+    const monster2 = new Enemy(this, 70, 120, 'enemy2', null, 'Monster2', 50, 3);
     this.add.existing(monster2);
 
     this.players = [robot, knight];
@@ -45,7 +45,7 @@ export default class FightScene extends Phaser.Scene {
       return;
     }
     do {
-      this.index++;
+      this.index += 1;
       // When we run out of units, we start again from the first one
       if (this.index >= this.units.length) {
         this.index = 0;
@@ -67,17 +67,18 @@ export default class FightScene extends Phaser.Scene {
     }
   }
 
+
   checkEndBattle() {
     let victory = true;
     // if all enemies are dead we have victory
-    for (let i = 0; i < this.enemies.length; i++) {
-      if (this.enemies[i].living) victory = false;
-    }
+    this.enemies.forEach(i => {
+      if (i.living) victory = false;
+    });
     let gameOver = true;
     // if all heroes are dead we have game over
-    for (let i = 0; i < this.players.length; i++) {
-      if (this.players[i].living) gameOver = false;
-    }
+    this.enemies.forEach(i => {
+      if (i.living) gameOver = false;
+    });
     return victory || gameOver;
   }
 
@@ -97,10 +98,7 @@ export default class FightScene extends Phaser.Scene {
     // clear state, remove sprites
     this.players.length = 0;
     this.enemies.length = 0;
-    for (let i = 0; i < this.units.length; i++) {
-      // link item
-      this.units[i].destroy();
-    }
+    this.units.forEach(i => i.destroy());
     this.units.length = 0;
     // sleep the menu
     this.scene.sleep('UserScene');
