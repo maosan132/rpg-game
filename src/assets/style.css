@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222;
+  
+}
+
+h1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: yellow;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}

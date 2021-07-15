@@ -4,7 +4,7 @@ import StartScene from './Scenes/StartScene';
 import MapScene from './Scenes/MapScene';
 import UserScene from './Scenes/UserScene';
 import FightScene from './Scenes/FightScene';
-// import Globals from './Globals';
+// import InitSettings from './InitSettings';
 
 // const game = new Phaser.Game(config);
 
@@ -18,6 +18,8 @@ import FightScene from './Scenes/FightScene';
 class Game extends Phaser.Game {
   constructor() {
     super(config);
+    // const initSettings = new InitSettings();
+    // this.globals = { initSettings, bgMusic: null };
     this.scene.add('StartScene', StartScene);
     this.scene.add('MapScene', MapScene);
     this.scene.add('FightScene', FightScene);

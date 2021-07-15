@@ -1,5 +1,4 @@
 import Phaser from 'phaser';
-import logo from '../assets/microverse_purple.png';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/new_assetsX2.png';
 import map from '../assets/map/map.json';
@@ -13,7 +12,6 @@ export default class StartScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', logo); // MV logo
     this.load.image('tiles', tiles); // Objects (rocks)
     this.load.image('bg', bg); // World surface
     this.load.tilemapTiledJSON('map', map);
