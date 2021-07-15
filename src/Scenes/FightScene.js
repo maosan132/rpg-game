@@ -33,7 +33,7 @@ export default class FightScene extends Phaser.Scene {
     // array with both parties, who will attack
     this.units = this.players.concat(this.enemies);
 
-    this.index = -1;// currently active unit
+    this.index = -1;// currently active unit -> it starts -1 and at each turn it grows to 0 then 1
 
     // Run UserScene parallelly
     this.scene.run('UserScene'); // in first part I used 'scene.launch'
@@ -43,10 +43,10 @@ export default class FightScene extends Phaser.Scene {
     scoreCaption1.setScale(0.8);
     const scoreCaption2 = this.add.text(210, 6, 'Player: ');
     scoreCaption2.setScale(0.8);
-    let score1 = 150;
-    let score2 = 0;
-    const enemyScore = this.add.text(65, 6, `${score1}`);
-    const heroScore = this.add.text(275, 6, `${score2}`);
+    this.score1 = 0;
+    this.score2 = 0;
+    const enemyScore = this.add.text(65, 6, `${this.score1}`);
+    const heroScore = this.add.text(275, 6, `${this.score2}`);
     // this.add.sprite(100, 300, 'player').setScale(3.5);
   }
 
@@ -77,7 +77,6 @@ export default class FightScene extends Phaser.Scene {
       this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
     }
   }
-
 
   checkEndBattle() {
     let victory = true;
