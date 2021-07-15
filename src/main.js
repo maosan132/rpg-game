@@ -5,11 +5,24 @@ import MapScene from './Scenes/MapScene';
 import UserScene from './Scenes/UserScene';
 import FightScene from './Scenes/FightScene';
 
-const game = new Phaser.Game(config);
+// const game = new Phaser.Game(config);
 
-game.scene.add('StartScene', StartScene);
-game.scene.add('MapScene', MapScene);
-game.scene.add('FightScene', FightScene);
-game.scene.add('UserScene', UserScene);
+// game.scene.add('StartScene', StartScene);
+// game.scene.add('MapScene', MapScene);
+// game.scene.add('FightScene', FightScene);
+// game.scene.add('UserScene', UserScene);
 
-game.scene.start('StartScene');
+// game.scene.start('Start');
+
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    this.scene.add('StartScene', StartScene);
+    this.scene.add('MapScene', MapScene);
+    this.scene.add('FightScene', FightScene);
+    this.scene.add('UserScene', UserScene);
+    this.scene.start('Start');
+  }
+}
+
+window.xgame = new Game();
