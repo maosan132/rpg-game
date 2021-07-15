@@ -4,6 +4,7 @@ import StartScene from './Scenes/StartScene';
 import MapScene from './Scenes/MapScene';
 import UserScene from './Scenes/UserScene';
 import FightScene from './Scenes/FightScene';
+// import Globals from './Globals';
 
 // const game = new Phaser.Game(config);
 
@@ -25,4 +26,4 @@ class Game extends Phaser.Game {
   }
 }
 
-window.xgame = new Game();
+window.game = new Game(); // Entry point
