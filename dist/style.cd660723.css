@@ -2,8 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #222;
-  
+  background-color: #222;  
 }
 
 h1 {
@@ -14,8 +13,8 @@ h1 {
 }
 
 canvas {
-  width: 100% !important;
-  height: 100% !important;
+  width: 90% !important;
+  height: 90% !important;
 }
 
 /*# sourceMappingURL=/style.cd660723.css.map */
