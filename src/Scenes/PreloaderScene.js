@@ -1,3 +1,4 @@
+/* eslint-disable no-bitwise */
 import 'phaser';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/new_assetsX2.png';
@@ -5,6 +6,13 @@ import map from '../assets/map/map.json';
 import bg from '../assets/bg.png';
 import enemy1 from '../assets/enemy1.png';
 import enemy2 from '../assets/enemy2.png';
+import button from '../assets/button.png';
+import button2 from '../assets/button2.png';
+import box from '../assets/grey_box.png';
+import checkedBox from '../assets/blue_boxCheckmark.png';
+import bgmusic2 from '../assets/bgmusic2.mp3';
+
+
 
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -12,8 +20,10 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    this.add.image(240, 240, 'bg2');
-    this.add.image(100, 10, 'title');
+    const bg2 = this.add.image(160, 0, 'bg2');
+    // bg2.setScale(0.8);
+    const title = this.add.image(155, 70, 'title');
+    title.setScale(1.3);
     this.load.image('tiles', tiles); // Objects (rocks)
     this.load.image('bg', bg); // World surface
     this.load.tilemapTiledJSON('map', map);
@@ -27,16 +37,16 @@ export default class PreloaderScene extends Phaser.Scene {
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(240, 270, 320, 50);
+    progressBox.fillRect(100, 120, 120, 20);
 
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
     const loadingText = this.make.text({
       x: width / 2,
-      y: height / 2 - 50,
+      y: height / 2 - 10,
       text: 'Loading...',
       style: {
-        font: '20px monospace',
+        font: '10px monospace',
         fill: '#ffffff',
       },
     });
@@ -44,10 +54,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     const percentText = this.make.text({
       x: width / 2,
-      y: height / 2 - 5,
+      y: height / 2 + 10,
       text: '0%',
       style: {
-        font: '18px monospace',
+        font: '16px monospace',
         fill: '#ffffff',
       },
     });
@@ -55,10 +65,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     const assetText = this.make.text({
       x: width / 2,
-      y: height / 2 + 50,
+      y: height / 2 + 30,
       text: '',
       style: {
-        font: '18px monospace',
+        font: '10px monospace',
         fill: '#ffffff',
       },
     });
@@ -68,8 +78,8 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.on('progress', (value) => {
       percentText.setText(`${+(value * 100 | 0)}%`);
       progressBar.clear();
-      progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(250, 280, 300 * value, 30);
+      progressBar.fillStyle(0x000000, 1);
+      progressBar.fillRect(100, 120, 120 * value, 20);
     });
 
     // update file progress text
@@ -88,13 +98,14 @@ export default class PreloaderScene extends Phaser.Scene {
     });
 
     // load assets needed in our game
-    this.load.image('btn', 'assets/ui/button_small.png');
-    this.load.image('box', 'assets/ui/grey_box.png');
-    this.load.image('checkedBox', 'assets/ui/blue_boxCheckmark.png');
-    this.load.audio('bgMusic', ['assets/heroism.mp3']);
+    this.load.image('btn', button);
+    this.load.image('btn2', button2);
+    this.load.image('box', box);
+    this.load.image('checkedBox', checkedBox);
+    this.load.audio('bgMusic', [bgmusic2]);
   }
 
   ready() {
-    this.scene.start('UserScene');
+    this.scene.start('Welcome');
   }
 }

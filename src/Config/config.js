@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 const config = {
   backgroundColor: 0x0080ff,
   type: Phaser.AUTO,
+  // parent: 'game',
   width: 320,
   height: 240,
   zoom: 1,
