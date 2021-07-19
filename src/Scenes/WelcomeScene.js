@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import 'phaser';
 import config from '../Config/config';
+import button1 from '../assets/button.png';
 
 export default class WelcomeScene extends Phaser.Scene {
   constructor() {
@@ -12,54 +13,76 @@ export default class WelcomeScene extends Phaser.Scene {
   }
 
   create() {
-    this.back = this.add.image(400, 300, 'background');
-    this.add.image(400, 100, 'title');
+
+    //this.scale.displaySize.setAspectRatio( game.width/game.height );
+    // this.scale.refresh();
+
+    this.back = this.add.image(160, 0, 'bg2');
+    // bg2.setScale(0.8);
+    this.title = this.add.image(155, 70, 'title');
+    this.title.setScale(1.3);
 
     // try to add the story
-    const story = ['Your team of warriors just received a communication that the frontier town of Arcadia is about to be attacked by Orcs in 2 days. You have to be there to protect Arcadia.',
-      'The safe road will take you there in 7 days.   y then the town will be lost. The only chance to make it on time is to pass through the dangerous Dark Forest.',
-      'Passing the forest is difficult and risky. Various monsters and reprobates are larking waiting to attack any trespassers.',
-      'Even you and your experienced fighters might not be able to accomplish that. The people of Arcadia are relying on you to save them. Do not fail your mission.'];
+    // const story = ['You have to be there to protect Arcadia.'];
+    //   'The safe road will take you there in 7 days.   y then the town will be lost. .',
+    //   'Passing the forest is difficult and risky. Various monsters and reprobates are larking waiting to attack any trespassers.',
+    //   'Even you and your experienced fighters might not be able to accomplish that. The people of Arcadia are relying on you to save them. Do not fail your mission.'];
 
-    const graphics = this.make.graphics();
+    // const graphics = this.make.graphics();
 
-    graphics.fillRect(70, 160, 665, 270);
-    const mask = new Phaser.Display.Masks.GeometryMask(this, graphics);
-    const text = this.add.text(70, 160, story, {
-      color: 'white',
-      fontSize: '18px ',
-      wordWrap: { width: 665 },
-      align: 'center',
-    });
-    text.setMask(mask);
+    // graphics.fillRect(70, 100, 665, 270);
+    // const mask = new Phaser.Display.Masks.GeometryMask(this, graphics);
+    // const text = this.add.text(70, 160, story, {
+    //   color: 'white',
+    //   fontSize: '11px ',
+    //   wordWrap: { width: 665 },
+    //   align: 'center',
+    // });
+    // text.setMask(mask);
 
     // end of story
 
 
-    this.add.text(270, 430, 'Please enter your name', {
-      color: 'white',
-      fontSize: '18px ',
+    this.add.text(80, 120, 'Please enter your name', {
+      color: 'black',
+      fontSize: '12px ',
     });
-    this.add.text(700, 560, 'v.1.0.7', {
+    this.add.text(10, 220, 'v.0.0.1', {
       color: '#fff',
-      fontSize: '12px',
+      fontSize: '10px',
     });
 
-    const input = this.add.dom(400, 478, 'input', {
+    const input = this.add.dom(155, 145, 'input', {
       type: 'text',
       name: 'nameField',
-      fontSize: '32px',
+      fontSize: '10px',
+      autofocus: true,
+      defaultValue: 'your name',
+      color: 'red',
+      font: 'Monospace 1px',
+    });
+    
+    const button = this.add.dom(155, 175, 'button', {
+      width: '100px',
+      height: '25px',
+      name: 'submit',
+      type: 'submit',
+      value: 'Play',
+      background: 'red',
+      cursor: 'pointer',
+      innerText: 'dfasdfasdf',
     });
 
-    const style = 'background: url(assets/ui/button_small.png); width: 490px; height: 77px; border: none; font: 32px Georgia; color: #fff;';
-    const btn = this.add.dom(390, 550, 'button', style, 'Playx Now');
-    btn.addListener('click');
+    // const style = 'background: url("./assets/button2.png"); cursor: pointer; width: 100px; height: 30px; border: 1px solid red; font: 12px Georgia; color: #000;';
+    // const btn = this.add.dom(155, 180, 'button', style, 'Play Now');
+    button.addListener('click');
 
-    btn.on('click', () => {
+    button.on('click', () => {
       if (input.node.value) {
-        this.model = this.sys.game.globals.model;
-        this.model.userName = input.node.value;
-        this.scene.start('Title');
+        console.log(this);
+        this.initSettings = this.sys.game.globals.initSettings;
+        this.initSettings.userName = input.node.value;
+        this.scene.start('Start');
       }
     });
   }

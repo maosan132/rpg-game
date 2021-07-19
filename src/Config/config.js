@@ -3,7 +3,14 @@ import Phaser from 'phaser';
 const config = {
   backgroundColor: 0x0080ff,
   type: Phaser.AUTO,
-  // parent: 'game',
+  scale: {
+    mode: Phaser.Scale.FIT,
+    parent: 'game',
+    // autoCenter: Phaser.Scale.CENTER_BOTH,
+    // width: 800,
+    // height: 600,
+  },
+  parent: 'game',
   width: 320,
   height: 240,
   zoom: 1,
@@ -15,7 +22,10 @@ const config = {
       debug: true,
     },
   },
-  defaultImage: './assets/microverse_purple.png',
+  dom: {
+    createContainer: true,
+  },
+  // defaultImage: './assets/microverse_purple.png',
   // disableContextMenu: true,
   gameTitle: 'SantosGame',
   hidePhaser: true,
@@ -24,4 +34,4 @@ const config = {
 
 };
 
-export default config;
+export default config;0
