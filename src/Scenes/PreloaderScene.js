@@ -10,7 +10,8 @@ import button from '../assets/button.png';
 import button2 from '../assets/button2.png';
 import box from '../assets/grey_box.png';
 import checkedBox from '../assets/blue_boxCheckmark.png';
-import bgmusic2 from '../assets/bgmusic2.mp3';
+import bgmusic from '../assets/bgmusic.mp3';
+
 
 
 
@@ -102,7 +103,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('btn2', button2);
     this.load.image('box', box);
     this.load.image('checkedBox', checkedBox);
-    this.load.audio('bgMusic', [bgmusic2]);
+    this.load.audio('bgMusic', [bgmusic]);
   }
 
   ready() {

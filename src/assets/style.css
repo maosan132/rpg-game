@@ -16,3 +16,31 @@ h1 {
   width: 90% !important;
   height: 90% !important;
 } */
+
+input {
+  font-family: monospace;
+}
+
+input:focus {
+  outline: none
+}
+
+button {
+  background: url(button.png);
+  outline: none;
+  border: none;
+  background-size: 100px 30px;
+}
+
+button::after {
+  content: 'Play now';
+}
+
+button:hover {
+  background: url(button2.png);
+  background-size: 100px 30px;
+}
+
+button:hover::after {
+  color: #000;
+}
