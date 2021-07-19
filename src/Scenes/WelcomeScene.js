@@ -61,7 +61,7 @@ export default class WelcomeScene extends Phaser.Scene {
       color: 'red',
       font: 'Monospace 1px',
     });
-    
+
     const button = this.add.dom(155, 175, 'button', {
       width: '100px',
       height: '25px',
