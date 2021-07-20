@@ -33,7 +33,7 @@ button {
 }
 
 button::after {
-  content: 'Play now';
+  content: 'Ingresar';
 }
 
 button:hover {

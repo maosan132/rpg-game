@@ -8,6 +8,9 @@ import BootScene from './Scenes/BootScene';
 import Preloader from './Scenes/PreloaderScene';
 import Welcome from './Scenes/WelcomeScene';
 import Title from './Scenes/TitleScene';
+import LeaderBoard from './Scenes/LeaderBoard';
+import Credits from './Scenes/Credits';
+import Options from './Scenes/OptionsScene';
 import InitSettings from './Config/InitSettings';
 
 // const game = new Phaser.Game(config);
@@ -32,6 +35,9 @@ class Game extends Phaser.Game {
     this.scene.add('PreloaderScene', Preloader);
     this.scene.add('WelcomeScene', Welcome);
     this.scene.add('TitleScene', Title);
+    this.scene.add('CreditsScene', Credits);
+    this.scene.add('OptionsScene', Options);
+    this.scene.add('LeaderBoardScene', LeaderBoard);
     this.scene.start('BootScene');
   }
 }
