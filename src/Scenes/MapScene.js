@@ -5,6 +5,16 @@ export default class MapScene extends Phaser.Scene {
     super({ key: 'MapScene' }); // TODO: find out what key does -> answer: is an alias for this scene
   }
 
+  updateScore() {
+    this.score = this.sys.game.globals.initSettings.score;
+    this.scoreText = this.add.text(12, 8, `Score: ${this.score}`, {
+      fontSize: '14px',
+      fill: '#fff',
+      backgroundColor: '#000',
+    });
+    this.scoreText.setScrollFactor(0);
+  }
+
   create() {
     // Set the background
     this.add.image(240, 240, 'bg');
@@ -16,6 +26,20 @@ export default class MapScene extends Phaser.Scene {
     // const grass = map.createLayer('Grass', tiles, 0, 0); // Overrode by bg above #create 1st line
     const obstacles = map.createLayer('Obstacles', tiles, 0, 0);
     obstacles.setCollisionByExclusion([-1]); // set all obstacles to collide
+
+    this.updateScore();
+
+    const userName = this.add.text(
+      100,
+      8,
+      `Player:${this.sys.game.globals.initSettings.userName}`,
+      {
+        fontSize: '14px',
+        color: '#fff',
+        backgroundColor: '#bd1222',
+      },
+    );
+    userName.setScrollFactor(0);
 
     // Creating the player with physics
     this.player = this.physics.add.sprite(50, 100, 'player', 3);
