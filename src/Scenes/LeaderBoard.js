@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import 'phaser';
 import config from '../Config/config';
-import { getScores } from '../Scenes/leaderBoard';
+import { getScores } from '../Config/LeaderboardApi';
 
 export default class LeaderBoardScene extends Phaser.Scene {
   constructor() {
