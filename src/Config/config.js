@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 const config = {
-  backgroundColor: 0x0080ff,
+  // backgroundColor: 0x0080ff,
   type: Phaser.AUTO,
   scale: {
     mode: Phaser.Scale.FIT,
@@ -28,7 +28,7 @@ const config = {
   // defaultImage: './assets/microverse_purple.png',
   // disableContextMenu: true,
   gameTitle: 'SantosGame',
-  hidePhaser: true,
+  // hidePhaser: true,
   // scaleMode: .5,
   // scene: [StartScene, FightScene, UserScene],
 

@@ -42,7 +42,7 @@ export default class WelcomeScene extends Phaser.Scene {
 
     btn.on('click', () => {
       if (input.node.value) {
-        console.log('dfgsdfg');
+        console.log(input.node.value);
         this.initSettings = this.sys.game.globals.initSettings;
         this.initSettings.userName = input.node.value;
         this.scene.start('Title');

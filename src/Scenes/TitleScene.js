@@ -9,38 +9,39 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
-    // this.back = this.add.image(400, 300, 'background');
-    this.add.image(400, 100, 'title');
-    const user = this.sys.game.globals.model.userName;
-    this.add.text(config.width / 2, 20, `Welcome ${user}`).setOrigin(0.5, 0.5);
+    this.back = this.add.image(160, 0, 'bg2');
+    this.title = this.add.image(155, 70, 'title');
+    this.title.setScale(1.3);
+    const user = this.sys.game.globals.initSettings.userName;
+    this.add.text(config.width / 2, 20, `Welcome ${user}`).setOrigin(0.5, 0.5).setScale(0.8);
 
     // Game
     this.gameButton = new Button(
       this,
-      config.width / 2,
-      config.height / 2 - 90,
+      config.width / 2 - 60,
+      config.height / 2 + 20,
       'btn',
-      'btn',
+      'btn2',
       'Play',
-      'Game',
+      'Start',
     );
     // Options
     this.gameButton = new Button(
       this,
-      config.width / 2,
-      config.height / 2,
+      config.width / 2 + 55,
+      config.height / 2 + 20,
       'btn',
-      'btn',
+      'btn2',
       'Options',
       'Options',
     );
     // Credits
     this.gameButton = new Button(
       this,
-      config.width / 2,
-      config.height / 2 + 90,
+      config.width / 2 - 60,
+      config.height / 2 + 60,
       'btn',
-      'btn',
+      'btn2',
       'Credits',
       'Credits',
     );
@@ -48,19 +49,19 @@ export default class TitleScene extends Phaser.Scene {
     // LeaderBoard
     this.gameButton = new Button(
       this,
-      config.width / 2,
-      config.height / 2 + 180,
+      config.width / 2 + 55,
+      config.height / 2 + 60,
       'btn',
-      'btn',
+      'btn2',
       'LeaderBoard',
       'LeaderBoard',
     );
 
-    this.model = this.sys.game.globals.model;
-    if (this.model.musicOn && this.model.bgMusicPlaying === false) {
+    this.initSettings = this.sys.game.globals.initSettings;
+    if (this.initSettings.musicOn && this.initSettings.bgMusicPlaying === false) {
       this.bgMusic = this.sound.add('bgMusic', { volume: 0.5, loop: true });
       this.bgMusic.play();
-      this.model.bgMusicPlaying = true;
+      this.initSettings.bgMusicPlaying = true;
       this.sys.game.globals.bgMusic = this.bgMusic;
     }
   }
