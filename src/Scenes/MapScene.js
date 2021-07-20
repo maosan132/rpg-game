@@ -36,10 +36,22 @@ export default class MapScene extends Phaser.Scene {
       {
         fontSize: '14px',
         color: '#fff',
-        backgroundColor: '#bd1222',
+        backgroundColor: '#000',
       },
     );
-    userName.setScrollFactor(0);
+    userName.setScrollFactor(0); // Prevents score and username from scrolling away from top
+
+    const exitToMenu = this.add.text(
+      12,
+      220,
+      'Press X to exit',
+      {
+        fontSize: '10px',
+        color: '#fff',
+        backgroundColor: '#000',
+      },
+    );
+    exitToMenu.setScrollFactor(0);
 
     // Creating the player with physics
     this.player = this.physics.add.sprite(50, 100, 'player', 3);
@@ -89,16 +101,47 @@ export default class MapScene extends Phaser.Scene {
 
     // Plant 30 zones for battle when player touches them
     this.seeds = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
-    let arr = new Array(30).fill(1); // Create an array of 30 items, to use as an iterator
-    arr.forEach(() => {
-      const x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-      const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-      this.seeds.create(x, y, 20, 20);// Parameters of seed zones
+
+    // let arr = new Array(30).fill(1); // Create an array of 30 items, to use as an iterator
+    // arr.forEach(() => {
+    //   const x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
+    //   const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
+    //   this.seeds.create(x, y, 20, 20);// Parameters of seed zones
+    // });
+
+    const fightSpots = [
+      [100, 64],
+      // [600, 64],
+      // [980, 640],
+      // [480, 864],
+      // [800, 768],
+      // [832, 224],
+      // [352, 288],
+      // [256, 448],
+      // [640, 672],
+      // [768, 960],
+      // [520, 390],
+      // [440, 600],
+      // [360, 740],
+    ];
+    fightSpots.forEach(([x, y]) => {
+      this.seeds.create(x, y, 48, 48);
     });
 
     this.physics.add.overlap(this.player, this.seeds, this.onMeetEnemy, false, this); // Collider
 
+    // Let's create an exit zone so scoring system can have a way to work
+    const exit = this.add.zone(450, 450, 48, 48);
+    this.physics.world.enable(exit, 0);
+    this.physics.add.overlap(this.player, exit, this.onExit, false, this);
+
     this.sys.events.on('wake', this.wake, this); // Listen for wake event
+
+    this.input.keyboard.on('keydown-X', function (event) {
+      console.log('Hello from the A Key!');
+      this.scene.scene.start('Title');
+  });
+
   }
 
   wake() {
@@ -106,12 +149,13 @@ export default class MapScene extends Phaser.Scene {
     this.cursors.right.reset();
     this.cursors.up.reset();
     this.cursors.down.reset();
+    this.player.body.setVelocity(0);
+    this.player.anims.stop();
+    this.updateScore();
   }
 
-  onMeetEnemy(zone) {
-    zone.x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
-    zone.y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
-
+  onMeetEnemy(player, zone) {
+    zone.destroy();
     // shake the world
     this.cameras.main.shake(300);
 
@@ -120,6 +164,11 @@ export default class MapScene extends Phaser.Scene {
     // switch to FightScene
     this.scene.switch('FightScene');
   }
+
+  onExit() {
+    this.scene.start('Victory');
+  }
+
 
   update() {
     // player movements
