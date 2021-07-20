@@ -16,7 +16,7 @@ export default class TitleScene extends Phaser.Scene {
     this.add.text(config.width / 2, 110, `Welcome ${user}:`).setOrigin(0.5).setScale(0.7);
 
     // Game
-    this.gameButton = new Button(
+    this.gameButton1 = new Button(
       this,
       config.width / 2 - 60,
       config.height / 2 + 20,
@@ -26,7 +26,7 @@ export default class TitleScene extends Phaser.Scene {
       'Start',
     );
     // Options
-    this.gameButton = new Button(
+    this.gameButton2 = new Button(
       this,
       config.width / 2 + 55,
       config.height / 2 + 20,
@@ -36,7 +36,7 @@ export default class TitleScene extends Phaser.Scene {
       'Options',
     );
     // Credits
-    this.gameButton = new Button(
+    this.gameButton3 = new Button(
       this,
       config.width / 2 - 60,
       config.height / 2 + 60,
@@ -47,7 +47,7 @@ export default class TitleScene extends Phaser.Scene {
     );
 
     // LeaderBoard
-    this.gameButton = new Button(
+    this.gameButton4 = new Button(
       this,
       config.width / 2 + 55,
       config.height / 2 + 60,

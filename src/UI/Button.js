@@ -25,15 +25,13 @@ export default class Button extends Phaser.GameObjects.Container {
     });
 
     this.button.on('pointerover', () => {
-      this.button.setTexture(key2);
-      this.button.y += 3;
-      console.log('hover');
+      this.button.setTexture(key1);
+
     });
 
     this.button.on('pointerout', () => {
       this.button.setTexture(key1);
-      this.button.y -= 3;
-      console.log('out');
+
     });
 
     this.scene.add.existing(this);
