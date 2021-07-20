@@ -32,15 +32,15 @@ button {
   background-size: 100px 30px;
 }
 
-button::after {
+/* button::after {
   content: 'Ingresar';
-}
+} */
 
 button:hover {
   background: url(button2.png);
   background-size: 100px 30px;
 }
 
-button:hover::after {
-  color: #000;
+button:hover {
+  color: #000 important!;
 }

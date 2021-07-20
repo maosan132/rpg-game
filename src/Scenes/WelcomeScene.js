@@ -17,7 +17,7 @@ export default class WelcomeScene extends Phaser.Scene {
     this.title = this.add.image(155, 70, 'title');
     this.title.setScale(1.3);
 
-    this.add.text(80, 120, 'Please enter your name:', {
+    this.add.text(80, 120, 'Please type your name:', {
       color: 'black',
       fontSize: '12px ',
     });
@@ -35,18 +35,29 @@ export default class WelcomeScene extends Phaser.Scene {
       color: 'red',
     });
 
+    input.addListener('keypress');
+    input.on('keypress', e => {
+      if (e.key === 'Enter') {
+        if (input.node.value) {
+          setUserName(input.node.value);
+        }
+      }
+    });
     const style = `cursor: pointer; width: 100px;
-                   height: 30px; font: 12px monospace; color: #fff;`;
-    const btn = this.add.dom(155, 180, 'button', style, '');
+                   height: 30px; font: 12px monospace;`;
+    const btn = this.add.dom(155, 180, 'button', style, 'Enter');
     btn.addListener('click');
 
     btn.on('click', () => {
       if (input.node.value) {
-        console.log(input.node.value);
-        this.initSettings = this.sys.game.globals.initSettings;
-        this.initSettings.userName = input.node.value;
-        this.scene.start('Title');
+        setUserName(input.node.value);
       }
     });
+
+    const setUserName = (value) => {
+      this.initSettings = this.sys.game.globals.initSettings;
+      this.initSettings.userName = value;
+      this.scene.start('Title');
+    };
   }
 }
