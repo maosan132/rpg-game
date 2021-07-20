@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-unused-vars */
 import Phaser from 'phaser';
 
 export default class MapScene extends Phaser.Scene {
@@ -138,10 +140,8 @@ export default class MapScene extends Phaser.Scene {
     this.sys.events.on('wake', this.wake, this); // Listen for wake event
 
     this.input.keyboard.on('keydown-X', function (event) {
-      console.log('Hello from the A Key!');
       this.scene.scene.start('Title');
-  });
-
+    });
   }
 
   wake() {
