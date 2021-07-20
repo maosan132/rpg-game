@@ -12,6 +12,8 @@ import LeaderBoard from './Scenes/LeaderBoard';
 import Credits from './Scenes/Credits';
 import Options from './Scenes/OptionsScene';
 import InitSettings from './Config/InitSettings';
+import GameOverScene from './Scenes/GameOverScene';
+import VictoryScene from './Scenes/VictoryScene';
 
 // const game = new Phaser.Game(config);
 
@@ -38,6 +40,8 @@ class Game extends Phaser.Game {
     this.scene.add('CreditsScene', Credits);
     this.scene.add('OptionsScene', Options);
     this.scene.add('LeaderBoardScene', LeaderBoard);
+    this.scene.add('GameOver', GameOverScene);
+    this.scene.add('Victory', VictoryScene);
     this.scene.start('BootScene');
   }
 }
