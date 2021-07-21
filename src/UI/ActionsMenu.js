@@ -8,7 +8,7 @@ export default class ActionsMenu extends Menu {
     this.addMenuItem('Attack');
   }
 
-  confirm() {
+  confirm() { // Select an action and next menu and choose enemies to apply action
     this.scene.events.emit('SelectedAction');
   }
 }

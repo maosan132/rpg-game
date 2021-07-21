@@ -8,7 +8,7 @@ export default class HealthBar {
     this.x = x;
     this.y = y;
     this.value = 100;
-    this.p = 75 / 100;
+    this.p = 0.75;
     scene.add.existing(this.bar);
   }
 
@@ -25,21 +25,22 @@ export default class HealthBar {
     this.bar.clear();
     //  BG
     this.bar.fillStyle(0x000000);
-    this.bar.fillRect(this.x, this.y, 79, 16);
-    //  Health
+    this.bar.fillRect(this.x, this.y, 41, 8);
     this.bar.fillStyle(0xffffff);
-    this.bar.fillRect(this.x + 2, this.y + 2, 75, 12);
-    if (this.value < 25) {
+    this.bar.fillRect(this.x + 2, this.y + 2, 36, 4);
+
+    if (this.value < 40) {
       this.bar.fillStyle(0xff0000);
+    } else if (this.value < 85) {
+      this.bar.fillStyle(0xead91c);
     } else {
-      this.bar.fillStyle(0x00ff00);
+      this.bar.fillStyle(0x0c00ff);
     }
-    const d = Math.floor(this.p * this.value);
-    this.bar.fillRect(this.x + 2, this.y + 2, d, 12);
+    const d = Math.floor(this.p * this.value / 2);
+    this.bar.fillRect(this.x + 2, this.y + 2, d, 4);
   }
 
   remove() {
     this.bar.destroy();
-    
   }
 }

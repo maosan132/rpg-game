@@ -19,13 +19,13 @@ export default class FightScene extends Phaser.Scene {
   }
 
   startFight() {
-    const robot = new Player(this, 220, 70, 'player', 1, 'Destroyer', 100, 20); // Creates character and skills
+    const robot = new Player(this, 220, 90, 'player', 1, 'Destroyer', 100, 20); // Creates character and skills
     this.add.existing(robot);
-    const knight = new Player(this, 220, 120, 'player', 4, 'Swordman', 80, 8);
+    const knight = new Player(this, 220, 140, 'player', 4, 'Swordman', 80, 8);
     this.add.existing(knight);
-    const monster1 = new Enemy(this, 70, 70, 'enemy1', null, 'Monster1', 50, 3);
+    const monster1 = new Enemy(this, 70, 90, 'enemy1', null, 'Monster1', 50, 15);
     this.add.existing(monster1);
-    const monster2 = new Enemy(this, 70, 120, 'enemy2', null, 'Monster2', 50, 3);
+    const monster2 = new Enemy(this, 70, 140, 'enemy2', null, 'Monster2', 50, 8);
     this.add.existing(monster2);
 
     this.players = [robot, knight];
