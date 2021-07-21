@@ -133,7 +133,7 @@ export default class MapScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, this.seeds, this.onMeetEnemy, false, this); // Collider
 
     // Let's create an exit zone so scoring system can have a way to work
-    const exit = this.add.zone(450, 450, 48, 48);
+    const exit = this.add.zone(100, 150, 48, 48);
     this.physics.world.enable(exit, 0);
     this.physics.add.overlap(this.player, exit, this.onExit, false, this);
 
