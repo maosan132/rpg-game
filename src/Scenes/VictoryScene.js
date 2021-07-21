@@ -17,28 +17,30 @@ export default class VictoryScene extends Phaser.Scene {
     this.back = this.add.image(160, 0, 'bg2');
     this.title = this.add.image(155, 40, 'title');
 
-    this.add.text(70, 1000, 'Victory!', {
-      color: 'white',
-      fontSize: '14px ',
+    this.add.text(155, 80, 'Victory!', {
+      color: 'black',
+      fontSize: '18px ',
       fontFamily: 'monospace',
+      fontWeight: 'bold',
     }).setOrigin(0.5, 0.5);
 
-    const victory = 'Congratulations brave warrior. You have made it!.';
-    this.add.text(90, 150, victory, {
-      color: 'white',
-      fontSize: '12px ',
+    const victory = 'Congratulations! You have won!';
+    this.add.text(155, 110, victory, {
+      color: 'black',
+      fontSize: '14px ',
     }).setOrigin(0.5, 0.5);
 
-    this.add.text(110, 150, `Score: ${this.initSettings.score}`, {
+    this.add.text(155, 140, `Score: ${this.initSettings.score}`, {
       color: 'white',
       fontSize: '14px ',
     }).setOrigin(0.5, 0.5);
 
     putScore(this.initSettings.userName, this.initSettings.score);
 
-    const style = `background: url(assets/ui/button_small.png);
-                  width: 490px; height: 77px; border: none; font: 12px monospace; color: #fff;`;
-    const btn = this.add.dom(130, 150, 'button', style, 'Menu');
+    const Vstyle = `cursor: pointer; width: 100px;
+    height: 30px; font: 12px monospace; color: white`;
+    const btn = this.add.dom(155, 180, 'button', Vstyle, 'Menu');
+
     btn.addListener('click');
 
     btn.on('click', () => {

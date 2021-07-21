@@ -51,7 +51,7 @@ export default class WelcomeScene extends Phaser.Scene {
     });
 
     const style = `cursor: pointer; width: 100px;
-                   height: 30px; font: 12px monospace;`;
+                   height: 30px; font: 12px monospace; color: white`;
     const btn = this.add.dom(155, 180, 'button', style, 'Enter');
 
     btn.addListener('click');

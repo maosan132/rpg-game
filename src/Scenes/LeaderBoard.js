@@ -16,7 +16,7 @@ export default class LeaderBoardScene extends Phaser.Scene {
     this.back = this.add.image(160, 0, 'bg2');
     this.title = this.add.image(155, 40, 'title');
 
-    this.add.text(400, 200, 'Top Warriors', {
+    this.add.text(155, 80, 'Hall of Fame', {
       color: 'black',
       fontSize: '12px ',
       fontFamily: 'monospace',
@@ -33,8 +33,8 @@ export default class LeaderBoardScene extends Phaser.Scene {
         if (scores[i] !== undefined) {
           this.add
             .text(
-              400,
-              240 + margin * i,
+              155,
+              100 + margin * i,
               `${i + 1}. ${scores[i].user} ${scores[i].score}`,
               scoreStyle,
             )
@@ -42,9 +42,10 @@ export default class LeaderBoardScene extends Phaser.Scene {
         }
       }
     });
+    const Hstyle = `cursor: pointer; width: 100px;
+    height: 30px; font: 12px monospace; color: white`;
+    const btn = this.add.dom(155, 200, 'button', Hstyle, 'Menu');
 
-    const style = 'background: url(assets/ui/button_small.png); width: 490px; height: 77px; border: none; font: 32px Georgia; color: #fff;';
-    const btn = this.add.dom(390, 490, 'button', style, 'Menu');
     btn.addListener('click');
 
     btn.on('click', () => {

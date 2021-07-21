@@ -46,7 +46,7 @@ export default class CreditsScene extends Phaser.Scene {
 
 
     const Cstyle = `cursor: pointer; width: 100px;
-                   height: 30px; font: 12px monospace;`;
+                   height: 30px; font: 12px monospace; color: white`;
     const btn = this.add.dom(155, 210, 'button', Cstyle, 'Menu');
 
     btn.addListener('click');

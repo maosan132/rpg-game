@@ -13,7 +13,7 @@ export default class TitleScene extends Phaser.Scene {
     this.title = this.add.image(155, 70, 'title');
     this.title.setScale(1.3);
     const user = this.sys.game.globals.initSettings.userName;
-    this.add.text(config.width / 2, 110, `Welcome ${user}:`).setOrigin(0.5).setScale(0.7);
+    this.add.text(config.width / 2, 110, `Welcome ${user}:`).setOrigin(0.5).setScale(0.9);
 
     // Game
     this.gameButton1 = new Button(
