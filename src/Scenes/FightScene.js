@@ -21,13 +21,10 @@ export default class FightScene extends Phaser.Scene {
   startFight() {
     const robot = new Player(this, 220, 70, 'player', 1, 'Destroyer', 100, 20); // Creates character and skills
     this.add.existing(robot);
-
     const knight = new Player(this, 220, 120, 'player', 4, 'Swordman', 80, 8);
     this.add.existing(knight);
-
     const monster1 = new Enemy(this, 70, 70, 'enemy1', null, 'Monster1', 50, 3);
     this.add.existing(monster1);
-
     const monster2 = new Enemy(this, 70, 120, 'enemy2', null, 'Monster2', 50, 3);
     this.add.existing(monster2);
 
@@ -35,7 +32,7 @@ export default class FightScene extends Phaser.Scene {
     this.enemies = [monster1, monster2];
     // array with both parties, who will attack
     this.units = this.players.concat(this.enemies);
-
+    this.units.forEach(unit => unit.healthBar.draw()); // add healthbars
     this.index = -1;// currently active unit -> it starts -1 and at each turn it grows to 0 then 1
 
     // Run UserScene parallelly
