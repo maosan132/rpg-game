@@ -6,7 +6,7 @@ export default class Message extends Phaser.GameObjects.Container {
     const graphics = this.scene.add.graphics();
     this.add(graphics);
     // graphics.lineStyle(1, 0xffffff, 1);
-    graphics.fillStyle(0x000000, 1);
+    graphics.fillStyle(0x000000, 0.6);
     graphics.strokeRect(-100, -25, 200, 50);
     graphics.fillRect(-100, -25, 200, 50);
     this.text = new Phaser.GameObjects.Text(scene, 0, 0, '', {
