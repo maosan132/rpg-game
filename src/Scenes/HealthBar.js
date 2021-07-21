@@ -38,7 +38,7 @@ export default class HealthBar {
     this.bar.fillRect(this.x + 2, this.y + 2, d, 12);
   }
 
-  rem() {
+  remove() {
     this.bar.destroy();
     
   }

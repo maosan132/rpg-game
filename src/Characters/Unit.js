@@ -34,6 +34,7 @@ export default class Unit extends Phaser.GameObjects.Sprite {
       this.living = false; // this.alive = false;
       this.visible = false;
       this.menuItem = null;
+      this.healthBar.remove();
     }
   }
 }

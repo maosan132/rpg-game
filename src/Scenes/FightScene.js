@@ -41,7 +41,7 @@ export default class FightScene extends Phaser.Scene {
 
   nextTurn() {
     if (this.checkEndBattle()) {
-      this.endBattle();
+      this.endBattle(this.checkEndBattle());
       return;
     }
     do {
@@ -62,6 +62,9 @@ export default class FightScene extends Phaser.Scene {
       } while (!this.players[randomHero].living);
       // call the enemy's attack function
       this.units[this.index].attack(this.players[randomHero]);
+      const hero = this.players[randomHero];
+      hero.healthBar.decrease(100 * (hero.hp / hero.maxHp));
+
       // add timer for the next turn, so will have smooth gameplay
       this.time.addEvent({ delay: 3000, callback: this.nextTurn, callbackScope: this });
     }
@@ -78,6 +81,12 @@ export default class FightScene extends Phaser.Scene {
     this.enemies.forEach(i => {
       if (i.living) gameOver = false;
     });
+    if (victory) {
+      return 'victory';
+    }
+    if (gameOver) {
+      return 'gameOver';
+    }
     return victory || gameOver;
   }
 
@@ -85,6 +94,8 @@ export default class FightScene extends Phaser.Scene {
   receivePlayerSelection(action, target) {
     if (action === 'attack') {
       this.units[this.index].attack(this.enemies[target]);
+      const enemy = this.enemies[target];
+      enemy.healthBar.decrease(100 * (enemy.hp / enemy.maxHp));
     }
     this.time.addEvent({
       delay: 3000,
@@ -93,15 +104,30 @@ export default class FightScene extends Phaser.Scene {
     });
   }
 
-  endBattle() {
+  endBattle(result) {
+    this.updateScore(this.enemies.length, this.players.length);
     // clear state, remove sprites
     this.players.length = 0;
     this.enemies.length = 0;
     this.units.forEach(i => i.destroy());
     this.units.length = 0;
-    // sleep the menu
-    this.scene.sleep('UserScene');
-    // return to WorldScene and sleep current BattleScene
-    this.scene.switch('MapScene');
+    this.index = -1;
+
+    if (result === 'gameOver') {
+      this.scene.stop('Game');
+      this.scene.sleep('UIScene');
+      this.scene.switch('GameOver');
+    } else if (result === 'victory') {
+      // sleep the menu
+      this.scene.sleep('UserScene');
+      // return to WorldScene and sleep current BattleScene
+      this.scene.switch('MapScene');
+    }
+  }
+
+  updateScore(e, h) {
+    let { score } = this.sys.game.globals.initSettings;
+    score += (e + h) * 10;
+    this.sys.game.globals.initSettings.score = score;
   }
 }
