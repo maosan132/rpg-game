@@ -9,13 +9,11 @@ export default class VictoryScene extends Phaser.Scene {
   }
 
   init() {
-    console.log('vic-init');
     this.scale.fullscreenTarget = document.getElementById(config.parent);
     this.initSettings = this.sys.game.globals.initSettings;
   }
 
   create() {
-    console.log('vic-crea');
     this.back = this.add.image(160, 0, 'bg2');
     this.title = this.add.image(155, 40, 'title');
 

@@ -22,7 +22,7 @@ const createGame = async () => {
 const url = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Zl4d7IVkemOTTVg2fUdz/scores/';
 
 const putScore = async (user, score) => {
-  console.log('lead-putscore');
+  console.log('leadApi-#putScore');
   const body = JSON.stringify({ user, score });
   const data = {
     method: 'POST',
@@ -38,7 +38,7 @@ const putScore = async (user, score) => {
 };
 
 const getScores = async () => {
-  console.log('lead-getscores');
+  console.log('leadApi-#getScores');
   const data = {
     method: 'GET',
     headers: {
