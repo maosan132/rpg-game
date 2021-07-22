@@ -6,9 +6,6 @@ const config = {
   scale: {
     mode: Phaser.Scale.FIT,
     parent: 'game',
-    // autoCenter: Phaser.Scale.CENTER_BOTH,
-    // width: 800,
-    // height: 600,
   },
   parent: 'game',
   width: 320,
@@ -25,13 +22,8 @@ const config = {
   dom: {
     createContainer: true,
   },
-  // defaultImage: './assets/microverse_purple.png',
-  // disableContextMenu: true,
   gameTitle: 'SantosGame',
-  // hidePhaser: true,
-  // scaleMode: .5,
-  // scene: [StartScene, FightScene, UserScene],
-
+  scaleMode: 0.5,
 };
 
 export default config;
