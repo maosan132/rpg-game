@@ -1,0 +1,46 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #222;
+}
+
+h1 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: yellow;
+}
+
+/* #game canvas{
+  width: 90% !important;
+  height: 90% !important;
+} */
+
+input {
+  font-family: monospace;
+}
+
+input:focus {
+  outline: none
+}
+
+button {
+  background: url(/src/assets/button.png);
+  outline: none;
+  border: none;
+  background-size: 100px 30px;
+}
+
+/* button::after {
+  content: 'Ingresar';
+} */
+
+button:hover {
+  background: url(/src/assets/button2.png);
+  background-size: 100px 30px;
+}
+
+button:hover {
+  color: #000 important!;
+}

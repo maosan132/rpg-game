@@ -1,11 +1,30 @@
 {
   "name": "rpg-game",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
+  "main": "main.js",
+  "devDependencies": {
+    "babel-eslint": "10.1.x",
+    "css-loader": "^6.2.0",
+    "csv-loader": "^3.0.3",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "style-loader": "^3.2.1",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "xml-loader": "^1.2.1"
+  },
   "scripts": {
-    "start": "parcel src/index.html -p 5555",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode development",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -19,18 +38,6 @@
   },
   "homepage": "https://github.com/maosan132/rpg-game#readme",
   "dependencies": {
-    "assets": "^3.0.1",
-    "parcel-bundler": "^1.12.5",
-    "phaser": "^3.54.0"
-  },
-  "devDependencies": {
-    "babel-eslint": "10.1.x",
-    "eslint": "6.8.x",
-    "eslint-config-airbnb-base": "14.1.x",
-    "eslint-plugin-import": "2.20.x",
-    "stylelint": "13.3.x",
-    "stylelint-config-standard": "20.0.x",
-    "stylelint-csstree-validator": "^1.9.0",
-    "stylelint-scss": "3.17.x"
+    "phaser": "^3.55.2"
   }
 }
