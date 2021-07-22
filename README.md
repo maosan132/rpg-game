@@ -135,8 +135,8 @@ Use your terminal and run the commands after each instruction.
 | `git clone https://github.com/maosan132/rpg-game.git` | Clone the repository to you computer                  |
 | `cd rpg-game`                                         | Navigate to the newly created folder                  |
 | `npm install`                                         | Install dependencies and launch browser with examples |
-| `npm run build`                                       | Makes the build and starts the development server     |
-| `npx run start`                                       | Press `Ctrl + c` to kill **http-server** process      |
+| `npm run start`                                       | Makes the build and starts the development server     |
+|                                                       | Press `Ctrl + c` to kill **http-server** process      |
 | `http://localhost:9000`                               | Visit this link to play the game                      |
 
 
@@ -149,11 +149,11 @@ Use your terminal and run the commands after each instruction.
 
 ## Upcoming features
 
-- Randomize where the enemy ambushes
-- Weighted hit power, not always the same. Each character will have minimum and maximum hit power and will hit randomly between their limits.
-- Player characters will not restore full power after each battle.
+- Enhance the attacks with sound
+- Give instructions on-the-game as to how to apply attacks"
+- Add other type of attacks
 - Add power-ups inside the forest to restore user power.
-- Fix the health bug.
+- Enhance resolution
 
 ## 👤 Author
 
