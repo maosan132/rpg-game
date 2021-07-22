@@ -30,13 +30,17 @@ This capstone's goal is to create a turn-based RPG game using JavaScript ES6, We
 
 ### Gameplay
 
-Use the arrow keys to control a knight character on the vulcan terrain. You start on the top left corner and you have to navigate through the map to find the exit on the opposite side.
+Use the arrow keys to control a knight character on the vulcan terrain. You start on the top left corner and you have to navigate through the map to find the exit on the opposite side. You can hit X key to exit to title screen.
 
 You will run into hidden spots where you will be attacked by two enemies during your journey.
 
 When find a hidden spot, the battle screen starts where you decide which enemy to attack each time. Use arrow keys again to select an enemy and left key / space key to attack. This is a turn-based RPG so each of your team members attacks only once. The enemies will attack you when at their turn. The battle continues until you defeat all monsters or be defeated by them.
 
 After each battle your health will be restored.
+
+<p align="center">
+<img src="guide/mapa-vulcano.png">
+</p>
 
 If you reach the exit at the opposite side, your good to go and you won the game.
 
@@ -47,53 +51,64 @@ If you reach the exit at the opposite side, your good to go and you won the game
 1. #### Start Screen
 
 <p align="center">
-<img src="assets/screens/input.png">
+<img src="guide/start-screen.png">
 </p>
-
-Enter your name or avatar on the first screen and click on 'Play Now' button.
 
 <p align="center">
-<img src="assets/screens/menu.png">
+<img src="guide/input-screen.png">
 </p>
 
-Next screen is where you control the game. You have 4 options:
+Wait for the game to load and enter your name then hit Enter button.
+
+<p align="center">
+<img src="guide/title-screen.png">
+</p>
+
+Next screen is the the game menu. You have 4 options:
 
 2. #### Play
 
 <p align="center">
-<img src="assets/screens/play.png">
+<img src="guide/game-screen.png">
 </p>
 
-Here is where the fun begins. By clicking 'Play' you are transferred to the forest. You move your character on the screen by using the four arrow keys. You can move up, down, left, right, and even diagonally if you keep to arrows pressed simultaneously.
+You move your character on the screen by using the four arrow keys. You can move up, down, left, right, and even diagonally if you keep to arrows pressed simultaneously.
 
+<p align="center">
+<img src="guide/game-scene-complete.png">
+</p>
+
+Here you can see the whole map of Vulcano. THe game only shows a portion of the map.
 - #### Battlefield
 
 <p align="center">
-<img src="assets/screens/battle.png">
+<img src="guide/hidden-spot.png">
 </p>
 
-When attacked by foes you are transferred to the Battlefield. On the left side of the screen appear the attacking enemies. On the right side is your team. You, the Warrior, the Knight, and the Beast. Below them are three blue areas. The left area lists the names of the enemies, the right area the names of your team, and in the middle are the available commands. Currently, the only available command is 'Attack'.
+When a hidden spot is found (there are 30 of them) you appear on the vulcan fight area. On the left side of the screen are the attacking enemies. On the right side is your team. You, the Swordman,  and the Destroyer. Below them are three dark areas. The left one lists the names of the monster enemies, the right one your team, and in the middle are the available commands. Currently, the only available command is 'Attack'.
 
-Your team starts attacking first, one at a time. The attacker's name is in yellow letters. By pressing the up and down arrow you can select which foe to attack. After selecting press space to commence the attack.
+<p align="center">
+<img src="guide/fight-screen.png">
+</p>
 
-If you kill all the enemies you return to the forest and you can proceed with your quest. If you lose all your team it is 'Game Over' and you are transferred to the 'Game Over' scene.
+Your team starts attacking first, one at a time. The attacker's name is in yellow letters. By pressing the up and down arrow you can select which monster to attack. After selecting press left key or space key to attack.
 
-Your score is updated after each battle. If you get out of the forest you will see the 'Victory' scene and your score.
+If you kill all the enemies you return to the forest and you can proceed with your quest. If you lose all your team it is 'Game Over' and you are taken to the 'Game Over' scene. If you are victorious at every fight, and get the other corner of the map, you are taken to the 'victory' screen.
 
 3. #### Options
 
 <p align="center">
-<img src="assets/screens/options.png">
+<img src="guide/options.png">
 </p>
 
-'Music Enabled' checkbox controls whether you will have music during playing or not.
+'Music Enabled' checkbox toggles music on/off.
 
-'Sound Enabled' button is not operational yet.
+'Sound Enabled' checkbox toggles sound on/off.
 
 4. #### Credits
 
 <p align="center">
-<img src="assets/screens/credits.png">
+<img src="guide/credits.png">
 </p>
 
 Credits for this game.
@@ -101,7 +116,7 @@ Credits for this game.
 5. #### LeaderBoard
 
 <p align="center">
-<img src="assets/screens/leaders.png">
+<img src="guide/scoreboard.png">
 </p>
 
 Hall of fame players are listed on the LeaderBoard.
