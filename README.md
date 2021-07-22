@@ -32,7 +32,7 @@ This capstone's goal is to create a turn-based RPG game using JavaScript ES6, We
 
 Use the arrow keys to control a knight character on the vulcan terrain. You start on the top left corner and you have to navigate through the map to find the exit on the opposite side. You can hit X key to exit to title screen.
 
-You will run into hidden spots where you will be attacked by two enemies during your journey.
+You will run into hidden spots where you will be attacked by two enemies during your journey. These spots are generated randomly at different places at game start.
 
 When find a hidden spot, the battle screen starts where you decide which enemy to attack each time. Use arrow keys again to select an enemy and left key / space key to attack. This is a turn-based RPG so each of your team members attacks only once. The enemies will attack you when at their turn. The battle continues until you defeat all monsters or be defeated by them.
 
