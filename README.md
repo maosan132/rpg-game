@@ -135,8 +135,8 @@ Use your terminal and run the commands after each instruction.
 | `git clone https://github.com/maosan132/rpg-game.git` | Clone the repository to you computer                  |
 | `cd rpg-game`                                         | Navigate to the newly created folder                  |
 | `npm install`                                         | Install dependencies and launch browser with examples |
-| `npm start`                                           | Makes the build and starts the development server     |
-| `npx webpack serve`                                   | Press `Ctrl + c` to kill **http-server** process      |
+| `npm run build`                                       | Makes the build and starts the development server     |
+| `npx run start`                                       | Press `Ctrl + c` to kill **http-server** process      |
 | `http://localhost:9000`                               | Visit this link to play the game                      |
 
 

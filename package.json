@@ -4,7 +4,10 @@
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "main": "main.js",
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
     "babel-eslint": "10.1.x",
+    "babel-loader": "^8.2.2",
     "css-loader": "^6.2.0",
     "csv-loader": "^3.0.3",
     "eslint": "6.8.x",
@@ -15,15 +18,15 @@
     "stylelint-config-standard": "20.0.x",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "3.17.x",
-    "webpack": "^5.45.1",
+    "webpack": "^5.46.0",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2",
     "xml-loader": "^1.2.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --mode development",
-    "watch": "webpack --watch",
+    "watch": "jest --watch *.js",
     "start": "webpack-dev-server"
   },
   "repository": {
@@ -38,6 +41,7 @@
   },
   "homepage": "https://github.com/maosan132/rpg-game#readme",
   "dependencies": {
+    "jest": "^27.0.6",
     "phaser": "^3.55.2",
     "regenerator-runtime": "^0.13.7"
   }
