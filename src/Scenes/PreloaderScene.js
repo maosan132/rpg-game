@@ -1,4 +1,5 @@
 /* eslint-disable no-bitwise */
+/* eslint-disable no-unused-vars*/
 import Phaser from 'phaser';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/new_assetsX2.png';
@@ -19,6 +20,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
+    const bg2 = this.add.image(160, 0, 'bg2');
     const title = this.add.image(155, 70, 'title');
     title.setScale(1.3);
     this.load.image('tiles', tiles); // Objects (rocks)
