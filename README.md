@@ -13,6 +13,7 @@ This capstone's goal is to create a turn-based RPG game using JavaScript ES6, We
 - [Gameplay](#Gameplay)
 - [How to Play](#How-to-Play)
 - [Live Version](#Live-version)
+- [Presentation on video](#video-presentation)
 - [Install and Run](#How-to-Install-and-Run-in-Your-Computer)
 - [Acknowledgments](#Acknowledgments)
 
@@ -123,6 +124,10 @@ Hall of fame players are listed on the LeaderBoard.
 ### Live version
 
 - [**Vulcano**](http://mauriciosantos.paternit.com/io/vulcano/)
+
+### Video presentation
+
+- [**Loom Video link**](https://www.loom.com/share/e99044f5f5984b4f8250df9f0b1a6bfe/)
 
 ### How to Install and Run in Your Computer
 
