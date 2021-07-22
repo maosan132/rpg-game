@@ -1,4 +1,7 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
+<p align="center">
+<img src="guide/title-for-readme.png">
+</p>
 
 # JavaScript capstone project - VULCANO
 
