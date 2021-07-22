@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise */
-import 'phaser';
+import Phaser from 'phaser';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/new_assetsX2.png';
 import map from '../assets/map/map.json';
@@ -13,16 +13,12 @@ import checkedBox from '../assets/blue_boxCheckmark.png';
 import bgmusic from '../assets/bgmusic.mp3';
 
 
-
-
 export default class PreloaderScene extends Phaser.Scene {
   constructor() {
     super('Preloader');
   }
 
   preload() {
-    const bg2 = this.add.image(160, 0, 'bg2');
-    // bg2.setScale(0.8);
     const title = this.add.image(155, 70, 'title');
     title.setScale(1.3);
     this.load.image('tiles', tiles); // Objects (rocks)

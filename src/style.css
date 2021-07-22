@@ -22,7 +22,7 @@ input {
 }
 
 input:focus {
-  outline: none
+  outline: none;
 }
 
 button {
@@ -39,8 +39,4 @@ button {
 button:hover {
   background: url(/src/assets/button2.png);
   background-size: 100px 30px;
-}
-
-button:hover {
-  color: #000 important!;
 }

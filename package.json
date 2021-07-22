@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/maosan132/rpg-game#readme",
   "dependencies": {
-    "phaser": "^3.55.2"
+    "phaser": "^3.55.2",
+    "regenerator-runtime": "^0.13.7"
   }
 }

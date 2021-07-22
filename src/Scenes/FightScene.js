@@ -1,7 +1,6 @@
 import Phaser from 'phaser';
 import Player from '../Characters/Player';
 import Enemy from '../Characters/Enemy';
-import HealthBar from '../Scenes/HealthBar';
 
 export default class FightScene extends Phaser.Scene {
   constructor() {

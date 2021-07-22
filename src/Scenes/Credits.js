@@ -11,15 +11,17 @@ export default class CreditsScene extends Phaser.Scene {
     this.back = this.add.image(160, 0, 'bg2');
     this.title = this.add.image(155, 40, 'title');
     const style = { fontSize: '10px', fill: '#000' };
+    const style2 = { fontSize: '12px', fill: '#000' };
+
 
     this.created = this.add.text(
       0,
       120,
-      'Created By: Mauricio Santos',
+      'Created By: Mauricio Santos and Microverse',
       style,
     );
     this.line1 = this.add.text(0, 0, 'Final Capstone Project in JavaScipt Curriculum', style);
-    this.credits = this.add.text(0, 0, 'Credits:', style);
+    this.credits = this.add.text(0, 0, 'Credits:', style2);
     this.phaser = this.add.text(0, 0, 'Phaser 3', style);
     this.open = this.add.text(0, 0, 'OpenGameArt', style);
     this.duke = this.add.text(0, 0, 'Duke Nukem 2 Soundtrack', style);

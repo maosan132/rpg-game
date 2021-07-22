@@ -26,14 +26,15 @@ export default class LeaderBoardScene extends Phaser.Scene {
       const scoreStyle = {
         color: 'white',
         fontSize: '12px ',
+
       };
       scores.sort((a, b) => b.score - a.score);
-      const margin = 30;
+      const spacing = 12;
       for (let i = 0; i < 6; i += 1) {
         if (scores[i] !== undefined) {
           this.add.text(
             155,
-            100 + margin * i,
+            100 + spacing * i,
             `${i + 1}. ${scores[i].user} ${scores[i].score}`,
             scoreStyle,
           ).setOrigin(0.5, 0.5);

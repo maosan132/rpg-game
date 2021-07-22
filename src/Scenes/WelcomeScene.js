@@ -60,6 +60,5 @@ export default class WelcomeScene extends Phaser.Scene {
         setUserName(input.node.value);
       }
     });
-
   }
 }

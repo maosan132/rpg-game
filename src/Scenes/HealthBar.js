@@ -8,7 +8,7 @@ export default class HealthBar {
     this.x = x;
     this.y = y;
     this.value = 100;
-    this.p = 0.75;
+    this.factor = 0.75;
     scene.add.existing(this.bar);
   }
 
@@ -36,8 +36,8 @@ export default class HealthBar {
     } else {
       this.bar.fillStyle(0x0c00ff);
     }
-    const d = Math.floor(this.p * this.value / 2);
-    this.bar.fillRect(this.x + 2, this.y + 2, d, 4);
+    const decrease = Math.floor(this.factor * this.value * 0.5);
+    this.bar.fillRect(this.x + 2, this.y + 2, decrease, 4);
   }
 
   remove() {
