@@ -39,7 +39,7 @@ When find a hidden spot, the battle screen starts where you decide which enemy t
 After each battle your health will be restored.
 
 <p align="center">
-<img src="guide/mapa-vulcano.png">
+<img src="guide/mapa-vulcano2.png">
 </p>
 
 If you reach the exit at the opposite side, your good to go and you won the game.
