@@ -139,8 +139,8 @@ Use your terminal and run the commands after each instruction.
 | `cd rpg-game`                                         | Navigate to the newly created folder                  |
 | `npm install`                                         | Install dependencies and launch browser with examples |
 | `npm start`                                           | Makes the build and starts the development server     |
-|                                                       | Press `Ctrl + c` to kill **http-server** process      |
-| `http://localhost:8000`                               | Visit this link to play the game                      |
+| `npx webpack serve`                                   | Press `Ctrl + c` to kill **http-server** process      |
+| `http://localhost:9000`                               | Visit this link to play the game                      |
 
 [Up](#Table-of-Contents)
 
