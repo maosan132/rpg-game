@@ -27,7 +27,7 @@
     "test": "jest",
     "build": "webpack --mode development",
     "watch": "jest --watch *.js",
-    "start": "webpack-dev-server"
+    "start": "webpack serve --mode development"
   },
   "repository": {
     "type": "git",
