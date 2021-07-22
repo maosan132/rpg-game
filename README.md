@@ -17,8 +17,6 @@ This capstone's goal is to create a turn-based RPG game using JavaScript ES6, We
 
 > Main purpose of this project is practicing game development with Javascript. I am using Phaser as the framework. Parcel as the bundler, picked it over webpack as it has fewer configuration (0 in fact), and I will be using JS modern features as modules. API management for scores will also be concerned.
 
-[Up](#Table-of-Contents)
-
 ## Built With
 
 - HTML5
@@ -43,8 +41,6 @@ After each battle your health will be restored.
 </p>
 
 If you reach the exit at the opposite side, your good to go and you won the game.
-
-[Up](#Table-of-Contents)
 
 ### How to Play
 
@@ -121,8 +117,6 @@ Credits for this game.
 
 Hall of fame players are listed on the LeaderBoard.
 
-[Up](#Table-of-Contents)
-
 ### Live version
 
 - [**Vulcano**](http://mauriciosantos.paternit.com/io/vulcano/)
@@ -142,7 +136,6 @@ Use your terminal and run the commands after each instruction.
 | `npx webpack serve`                                   | Press `Ctrl + c` to kill **http-server** process      |
 | `http://localhost:9000`                               | Visit this link to play the game                      |
 
-[Up](#Table-of-Contents)
 
 ## Acknowledgements
 
@@ -150,9 +143,6 @@ Use your terminal and run the commands after each instruction.
 - Background music from Duke Nukem 2 Game
 - Player images by [OpenGameArt](https://opengameart.com)
 - Hat tip to anyone whose code was used
-
-
-[Up](#Table-of-Contents)
 
 ## Upcoming features
 
@@ -189,3 +179,6 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](lic.url) licensed.
+
+
+[Go up](#Table-of-Contents)
