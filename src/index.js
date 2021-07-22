@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import './style.css';
 import config from './Config/config';
 import StartScene from './Scenes/StartScene';
 import MapScene from './Scenes/MapScene';
