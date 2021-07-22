@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise */
-/* eslint-disable no-unused-vars*/
+/* eslint-disable no-unused-vars */
 import Phaser from 'phaser';
 import tiles from '../assets/map/spritesheet.png';
 import player from '../assets/new_assetsX2.png';

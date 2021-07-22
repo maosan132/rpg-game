@@ -104,7 +104,7 @@ export default class MapScene extends Phaser.Scene {
     // Plant 30 zones for battle when player touches them
     this.seeds = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
 
-    let arr = new Array(1).fill(1); // Create an array of 30 items, to use as an iterator
+    const arr = new Array(1).fill(1); // Create an array of 30 items, to use as an iterator
     arr.forEach(() => {
       const x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
       const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);

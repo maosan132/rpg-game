@@ -133,14 +133,14 @@ To run the scripts **npm** is required. To get npm you have to install [Node.js]
 
 Use your terminal and run the commands after each instruction.
 
-| Command                                             | Description                                           |
-| --------------------------------------------------- | ----------------------------------------------------- |
-| `git clone https://github.com/macnick/RPG-game.git` | Clone the repository to you computer                  |
-| `cd rpg-game`                                       | Navigate to the newly created folder                  |
-| `npm install`                                       | Install dependencies and launch browser with examples |
-| `npm start`                                         | Makes the build and starts the development server     |
-|                                                     | Press `Ctrl + c` to kill **http-server** process      |
-| `http://localhost:8000`                             | Visit this link to play the game                      |
+| Command                                               | Description                                           |
+| ---------------------------------------------------   | ----------------------------------------------------- |
+| `git clone https://github.com/maosan132/rpg-game.git` | Clone the repository to you computer                  |
+| `cd rpg-game`                                         | Navigate to the newly created folder                  |
+| `npm install`                                         | Install dependencies and launch browser with examples |
+| `npm start`                                           | Makes the build and starts the development server     |
+|                                                       | Press `Ctrl + c` to kill **http-server** process      |
+| `http://localhost:8000`                               | Visit this link to play the game                      |
 
 [Up](#Table-of-Contents)
 
