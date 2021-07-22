@@ -104,7 +104,7 @@ export default class MapScene extends Phaser.Scene {
     // Plant 30 zones for battle when player touches them
     this.seeds = this.physics.add.group({ classType: Phaser.GameObjects.Zone });
 
-    const arr = new Array(1).fill(1); // Create an array of 30 items, to use as an iterator
+    const arr = new Array(30).fill(1); // Create an array of 30 items, to use as an iterator
     arr.forEach(() => {
       const x = Phaser.Math.RND.between(0, this.physics.world.bounds.width);
       const y = Phaser.Math.RND.between(0, this.physics.world.bounds.height);
@@ -134,7 +134,7 @@ export default class MapScene extends Phaser.Scene {
 
     // Let's create an exit zone so scoring system can have a way to work
     const exit = this.add.zone(450, 450, 48, 48);
-    this.physics.world.enable(exit, 0);
+    this.physics.world.enable(exit, 1);
     this.physics.add.overlap(this.player, exit, this.onExit, false, this);
 
     this.sys.events.on('wake', this.wake, this); // Listen for wake event
