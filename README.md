@@ -142,6 +142,7 @@ Use your terminal and run the commands after each instruction.
 | `npm install`                                         | Install dependencies and launch browser with examples |
 | `npm run start`                                       | Makes the build and starts the development server     |
 |                                                       | Press `Ctrl + c` to kill **http-server** process      |
+| `npm run test`                                        | Start running tests                                   |
 | `http://localhost:9000`                               | Visit this link to play the game                      |
 
 
