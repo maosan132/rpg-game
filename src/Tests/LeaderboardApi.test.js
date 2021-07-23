@@ -29,3 +29,20 @@ describe('Should retrieve the score', () => {
     });
   });
 });
+
+describe('API GET JSON object', () => {
+  test('it returns object with items containing string/number pairs', () => {
+    getScores().then(data => {
+      data.map((user) => {
+        expect(typeof user[0]).toBe('string');
+        expect(typeof user[1]).toBe('number');
+      });
+    });
+  });
+
+  test('it returns message error', () => {
+    getScores().catch(message => {
+      expect(typeof message.result[0]).toBe('string');
+    });
+  });
+});
