@@ -8,9 +8,6 @@ export default class FightScene extends Phaser.Scene {
   }
 
   create() {
-    // Set background to lilly color
-    // this.cameras.main.setBackgroundColor('rgba(200, 100, 120, 0.5)');
-
     this.back = this.add.image(160, 0, 'bg2');
     // next two lines deals with startin' the fight
     this.startFight();

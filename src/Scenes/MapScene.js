@@ -111,25 +111,6 @@ export default class MapScene extends Phaser.Scene {
       this.seeds.create(x, y, 20, 20);// Parameters of seed zones
     });
 
-    // const fightSpots = [
-    //   [100, 64],
-    //   [600, 64],
-    //   [980, 640],
-    //   [480, 864],
-    //   [800, 768],
-    //   [832, 224],
-    //   [352, 288],
-    //   [256, 448],
-    //   [640, 672],
-    //   [768, 960],
-    //   [520, 390],
-    //   [440, 600],
-    //   [360, 740],
-    // ];
-    // fightSpots.forEach(([x, y]) => {
-    //   this.seeds.create(x, y, 48, 48);
-    // });
-
     this.physics.add.overlap(this.player, this.seeds, this.onMeetEnemy, false, this); // Collider
 
     // Let's create an exit zone so scoring system can have a way to work
