@@ -1,4 +1,5 @@
-import { putScore, getScores, createGame} from '../Config/LeaderboardApi';
+/* eslint-disable array-callback-return */
+import { putScore, getScores, createGame } from '../Config/LeaderboardApi';
 
 describe('Scores should be written and read from the API', () => {
   it('Should post the score', () => {
